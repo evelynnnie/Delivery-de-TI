@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profissionais Disponíveis</title>
+    <link rel="stylesheet" href="./css/chat.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <span class="voltar" onclick="window.location.href='dashboard.html'">⬅</span>
+        <h2>Profissionais</h2>
+    </div>
+
+    <div id="listaProfissionais"></div>
+
+    <script>
+        // Simulando uma lista de profissionais (pode vir de um banco de dados)
+        const profissionais = [
+            { nome: "Lucas Silva", foto: "lucas.jpg", id: 1 },
+            { nome: "Ana Souza", foto: "ana.jpg", id: 2 },
+            { nome: "Carlos Mendes", foto: "carlos.jpg", id: 3 }
+        ];
+
+        // Obtém o último profissional do localStorage
+        const ultimoContato = localStorage.getItem("ultimoProfissional");
+
+        // Se houver um último contato, reorganiza a lista para colocar ele primeiro
+        if (ultimoContato) {
+            const index = profissionais.findIndex(p => p.nome === ultimoContato);
+            if (index !== -1) {
+                const [profissional] = profissionais.splice(index, 1);
+                profissionais.unshift(profissional);
+            }
+        }
+
+        // Renderiza os profissionais na tela
+        const lista = document.getElementById("listaProfissionais");
+        profissionais.forEach(prof => {
+            const div = document.createElement("div");
+            div.classList.add("profissional");
+            div.innerHTML = `
+                <img src="./src/imagens/${prof.foto}" alt="${prof.nome}">
+                <span>${prof.nome}</span>
+            `;
+            div.onclick = () => {
+                localStorage.setItem("ultimoProfissional", prof.nome);
+                window.location.href = `chat_profissional.html?nome=${prof.nome}&foto=${prof.foto}`;
+            };
+            lista.appendChild(div);
+        });
+    </script>
+
+</body>
+</html>

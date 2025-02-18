@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="./css/chat_profissional.css">
+
+</head>
+<body>
+
+    <div class="top-bar">
+        <span class="voltar" onclick="window.history.back()">⬅</span>
+        <img id="fotoProfissional" src="" alt="Foto">
+        <h2 id="nomeProfissional"></h2>
+    </div>
+
+    <div class="chat-box" id="chatBox"></div>
+
+    <div class="input-box">
+        <input type="text" id="mensagem" placeholder="Digite sua mensagem...">
+        <button class="send-btn" onclick="enviarMensagem()">➤</button>
+    </div>
+
+    <script>
+        // Obtém os parâmetros da URL
+        const params = new URLSearchParams(window.location.search);
+        const nome = params.get("nome");
+        const foto = params.get("foto");
+
+        // Atualiza a tela com o profissional escolhido
+        document.getElementById("nomeProfissional").textContent = nome;
+        document.getElementById("fotoProfissional").src = `./src/imagens/${foto}`;
+
+        // Carrega mensagens antigas
+        let mensagens = JSON.parse(localStorage.getItem(`chat_${nome}`)) || [];
+        const chatBox = document.getElementById("chatBox");
+        mensagens.forEach(msg => {
+            exibirMensagem(msg);
+        });
+
+        function enviarMensagem() {
+            const mensagem = document.getElementById("mensagem").value;
+            if (mensagem.trim() === "") return;
+
+            const novaMsg = { texto: mensagem, enviado: true };
+            mensagens.push(novaMsg);
+            localStorage.setItem(`chat_${nome}`, JSON.stringify(mensagens));
+            exibirMensagem(novaMsg);
+
+            document.getElementById("mensagem").value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Salvar o profissional nos contatos recentes
+            let profissionaisConversados = JSON.parse(localStorage.getItem("profissionaisConversados")) || [];
+            if (!profissionaisConversados.find(p => p.nome === nome)) {
+                profissionaisConversados.unshift({ nome, foto });
+                localStorage.setItem("profissionaisConversados", JSON.stringify(profissionaisConversados));
+            }
+        }
+
+        function exibirMensagem(msg) {
+            const div = document.createElement("div");
+            div.style.textAlign = msg.enviado ? "right" : "left";
+            div.innerHTML = `<p style="background: ${msg.enviado ? '#dcf8c6' : '#ffffff'}; display: inline-block; padding: 5px 10px; border-radius: 10px;">${msg.texto}</p>`;
+            chatBox.appendChild(div);
+        }
+
+        // Envio com Enter
+        document.getElementById("mensagem").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                enviarMensagem();
+            }
+        });
+    </script>
+
+</body>
+</html>

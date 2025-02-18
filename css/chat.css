@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+.top-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.voltar {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.profissional {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.profissional img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

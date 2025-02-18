@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhes do Profissional</title>
+    <link rel="stylesheet" href="./css/detalhes.css" />
+</head>
+
+<body>
+    <div class="container">
+        <img id="fotoProfissional" src="" alt="Foto do profissional" class="foto-redonda" />
+        <h2 id="nomeProfissional">Nome do Profissional</h2>
+        <p id="descricao">Descrição aqui...</p>
+
+        <div id="habilidades">
+            <h3>Habilidades Técnicas:</h3>
+            <ul id="listaHabilidades">
+                <!-- As habilidades serão preenchidas dinamicamente pelo JavaScript -->
+            </ul>
+        </div>
+
+        <button onclick="escolherProfissional()">Quero esse profissional</button>
+        <button onclick="window.history.back()" class="botao-pequeno">
+            Voltar
+        </button>
+    </div>
+
+    <script>
+        // Banco de dados dos profissionais
+        const profissionais = {
+            "João Silva": {
+                descricao: "Ampla experiência em suporte técnico e infraestrutura de TI",
+                foto: "joao.jpg",
+                cargo: "Técnico em Suporte de TI",
+                experiencia: "5 anos",
+                habilidades: [
+                    "Suporte técnico presencial e remoto",
+                    "Instalação e configuração de hardware e software",
+                    "Gerenciamento de redes locais (LAN/WAN)",
+                    "Resolução de problemas em sistemas operacionais (Windows, Linux, macOS)",
+                    "Conhecimento em virtualização (VMware, Hyper-V)",
+                    "Backup e recuperação de dados",
+                    "Atendimento ao cliente e documentação técnica"
+                ],
+            },
+            "Ana Costa": {
+                descricao: "Desenvolvedora com foco em criar soluções eficientes e escaláveis",
+                foto: "ana.jpg",
+                cargo: "Técnica em Desenvolvimento de Sistemas",
+                experiencia: "4 anos",
+                habilidades: [
+                    "Desenvolvimento de aplicações web e mobile",
+                    "Linguagens: JavaScript, Python, PHP",
+                    "Frameworks: React, Node.js, Django",
+                    "Banco de dados: MySQL, PostgreSQL, MongoDB",
+                    "Controle de versão com Git/GitHub",
+                    "Testes e depuração de sistemas",
+                    "Conhecimento em metodologias ágeis (Scrum, Kanban)"
+                ],
+
+            },
+            "Carlos Lima": {
+                descricao: "Profissional especializado em infraestrutura de redes",
+                foto: "carlos.jpg",
+                cargo: "Técnico em Infraestrutura de Redes",
+                experiencia: "6 anos",
+                habilidades: [
+                    "Configuração e manutenção de redes (roteadores, switches, firewalls)",
+                    "Protocolos de rede: TCP/IP, DNS, DHCP, VPN",
+                    "Monitoramento de redes com ferramentas como Zabbix e PRTG",
+                    "Segurança de redes e implementação de políticas de firewall",
+                    "Virtualização de servidores (VMware, Proxmox)",
+                    "Conhecimento em cloud computing (AWS, Azure)",
+                    "Suporte avançado em sistemas Linux e Windows Server"
+                ],
+            },
+            "Mariana Souza": {
+                descricao: "Profissional dedicada à proteção de dados e sistemas",
+                foto: "mariana.jpg",
+                cargo: "Técnica em Segurança da Informação",
+                experiencia: "4 anos",
+                habilidades: [
+                    "Análise de vulnerabilidades e testes de penetração",
+                    "Implementação de políticas de segurança e conformidade (LGPD, GDPR)",
+                    "Ferramentas de segurança: Nessus, Metasploit, Wireshark",
+                    "Gerenciamento de firewalls e sistemas de detecção de intrusões (IDS/IPS)",
+                    "Criptografia e gestão de certificados digitais",
+                    "Conscientização e treinamento de equipes em boas práticas de segurança",
+                    "Resposta a incidentes e recuperação de desastres"
+                ]
+            }
+        };
+
+        // Captura o profissional escolhido na URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const profissional = urlParams.get("profissional");
+
+        if (profissional && profissionais[profissional]) {
+            const dados = profissionais[profissional];
+            document.getElementById("nomeProfissional").innerText = profissional;
+            document.getElementById("descricao").innerText = dados.descricao;
+            document.getElementById("fotoProfissional").src = dados.foto;
+            const listaHabilidades = document.getElementById("listaHabilidades");
+            listaHabilidades.innerHTML = dados.habilidades.map(habilidade => `<li>${habilidade}</li>`).join("");
+        } else {
+            document.getElementById("nomeProfissional").innerText = "Profissional não encontrado";
+            document.getElementById("descricao").innerText = "";
+            document.getElementById("fotoProfissional").src = "";
+            document.getElementById("listaHabilidades").innerHTML = "";
+        }
+
+        function escolherProfissional() {
+            const nome = document.getElementById("nomeProfissional").textContent;
+            const foto = document.getElementById("fotoProfissional").src;
+            window.location.href = `contato.html?nome=${encodeURIComponent(nome)}&foto=${encodeURIComponent(foto)}`;
+        }
+    </script>
+</body>
+
+</html>

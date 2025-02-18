@@ -1,0 +1,94 @@
+/* Define o background da empresa */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Caixa de login */
+.login-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px; /* Adiciona um espaço interno */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 320px; /* Aumenta um pouco a largura */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os inputs */
+}
+
+.logo {
+    width: 100px; /* Define um tamanho menor */
+    height: 100px; /* Mantém a proporção */
+    border-radius: 50%; /* Deixa a imagem circular */
+    object-fit: cover; /* Garante que a imagem se ajuste sem distorcer */
+    margin-bottom: 10px;
+}
+
+/* Campos de entrada com fundo laranja */
+input[type="email"], input[type="password"] {
+    width: 90%; /* Reduz a largura para não encostar na borda */
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f6941e; /* Cor laranja */
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box; /* Evita que o padding estoure o tamanho */
+}
+
+/* Placeholder branco */
+input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+/* Checkbox e termos alinhados corretamente */
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    gap: 5px; /* Espaço entre o checkbox e o texto */
+    margin: 10px 0;
+}
+
+.checkbox input {
+    width: 16px;
+    height: 16px;
+    accent-color: #f6941e;
+}
+
+
+/* Link dos termos */
+.checkbox a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de login */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f6941e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #f6941e;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato com Profissional</title>
+    <link rel="stylesheet" href="./css/contato.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="voltar" onclick="window.location.href='perfis.html'">⬅</div>
+        
+        <div class="perfil">
+            <img id="fotoProfissional" src="" alt="Foto do Profissional" class="foto-redonda">
+            <h2 id="nomeProfissional"></h2>
+        </div>
+
+        <div class="chat-container" id="chat"></div>
+
+        <div class="input-container">
+            <input type="text" placeholder="Digite sua mensagem..." id="mensagem" onkeypress="verificarEnter(event)">
+            <button onclick="enviarMensagem()">➤</button>
+        </div>
+    </div>
+
+    <script>
+        // Pegar informações do profissional escolhido da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nome = urlParams.get('nome');
+        const foto = urlParams.get('foto');
+
+        // Atualizar os elementos na tela
+        document.getElementById("nomeProfissional").textContent = nome;
+        document.getElementById("fotoProfissional").src = foto;
+
+        function enviarMensagem() {
+            let mensagem = document.getElementById("mensagem").value.trim();
+            if (mensagem !== "") {
+                let chat = document.getElementById("chat");
+
+                let msgDiv = document.createElement("div");
+                msgDiv.classList.add("mensagem-enviada");
+                msgDiv.textContent = mensagem;
+
+                chat.appendChild(msgDiv);
+                document.getElementById("mensagem").value = "";
+
+                // Rolar para a última mensagem
+                chat.scrollTop = chat.scrollHeight;
+            }
+        }
+
+        function verificarEnter(event) {
+            if (event.key === "Enter") {
+                enviarMensagem();
+            }
+
+            
+        }
+    </script>
+
+</body>
+</html>
