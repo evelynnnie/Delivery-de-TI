@@ -96,6 +96,7 @@ body {
 /* Overlay para fechar o menu */
 .overlay {
     position: fixed;
+    display: none;
     top: 0;
     left: 0;
     width: 100%;
