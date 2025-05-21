@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="./css/dashboard.css">
-</head>
-<body>
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/dashboard.css" />
+</head>
+
+<body>
     <div class="container">
-        <!-- Ícone de menu (três barrinhas) -->
-        <div class="menu" id="menuBtn" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-    
         <!-- Menu Lateral -->
         <div class="sidebar" id="sidebar">
             <a href="#">Página Inicial</a>
@@ -25,20 +19,43 @@
             <a href="#">Sobre</a>
             <a href="#" class="help" onclick="toggleHelp()">Ajuda</a>
         </div>
-    
+
         <!-- Overlay para fechar o menu -->
         <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-    
+
         <div class="top-bar">
+            <div class="menu" id="menuBtn" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
             <form action="perfis.html" method="GET" class="search-box">
-                <input type="text" placeholder="Qual o seu problema?" name="pergunta" required>
-            </form>            
+                <input type="text" placeholder="Qual o seu problema?" name="pergunta" required />
+            </form>
         </div>
     </div>
 
+    <!-- Overlay de instruções -->
+    <div id="overlayComoUsar" class="overlay-como-usar">
+        <div class="conteudo-como-usar">
+            <span class="fechar" onclick="fecharComoUsar()">&times;</span>
+            <h2>Como utilizar o site</h2>
+            <ul>
+                <li>📝 Digite seu problema de TI na barra de pesquisa.</li>
+                <li>🔍 Clique em "Enter" para ver os profissionais disponíveis.</li>
+                <li>📞 Clique em “Quero esse profissional” para contato.</li>
+                <li>❓ Use o botão "Ajuda" no menu para sugestões rápidas.</li>
+            </ul>
+        </div>
+    </div>
+
+    <button id="btnComoUsar" onclick="mostrarComoUsar()" class="btn-como-usar">Como usar o site?</button>
+
     <!-- Logo central -->
     <div class="logo-container">
-        <img src="./src/imagens/delivery de ti.jpg" alt="Logo" class="logo-central">
+
+        <img src="./src/imagens/delivery de ti.jpg" alt="Logo" class="logo-central" />
+        <span class="slogan">Seu problema de TI resolvido em minutos!</span>
     </div>
 
     <!-- Painel de Ajuda -->
@@ -56,9 +73,9 @@
             <p>📩 Erro ao enviar e-mail</p>
         </div>
 
-        <div class="help-footer" >
+        <div class="help-footer">
             Problema específico ou não identificado
-            <img src="./src/imagens/ballon-text.png" alt="Chat">
+            <img src="./src/imagens/ballon-text.png" alt="Chat" />
         </div>
     </div>
 
@@ -66,7 +83,7 @@
         function toggleMenu() {
             const sidebar = document.getElementById("sidebar");
             const overlay = document.getElementById("overlay");
-            
+
             if (sidebar.style.left === "0px") {
                 sidebar.style.left = "-220px";
                 overlay.style.display = "none";
@@ -89,7 +106,25 @@
                 overlay.style.display = "none";
             }
         }
-    </script>
 
+        function mostrarComoUsar() {
+            document.getElementById("overlayComoUsar").style.display = "flex";
+        }
+
+        function fecharComoUsar() {
+            document.getElementById("overlayComoUsar").style.display = "none";
+        }
+
+        // Fechar clicando fora da caixa
+        document.addEventListener('click', function (event) {
+            const overlay = document.getElementById('overlayComoUsar');
+            const conteudo = document.querySelector('.conteudo-como-usar');
+            if (overlay.style.display === 'flex' && !conteudo.contains(event.target) && event.target.id !== 'btnComoUsar') {
+                fecharComoUsar();
+            }
+        });
+
+    </script>
 </body>
+
 </html>
