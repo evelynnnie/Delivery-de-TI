@@ -463,3 +463,155 @@ body {
 .voltar-dashboard:hover svg path {
     stroke: #ff9800;
 }
+
+/* === Complementos de Estilo para Modo Escuro no Dashboard === */
+
+/* Corrigir a cor do body que pode ser sobreposta se dashboard.css carregar depois */
+/* e definir a cor do texto padrão do body para o modo escuro */
+body.modo-escuro {
+    background-color: #18191a; /* Fundo mais escuro */
+    color: #f3f3f3;             /* Cor do texto padrão para modo escuro */
+}
+
+/* Slogan - Correção de cor e estilo no modo escuro */
+body.modo-escuro .logo-container .slogan {
+    color: #f3f3f3; /* Cor clara para o slogan no modo escuro */
+}
+
+/* Barras do menu */
+body.modo-escuro .menu .bar {
+    background-color: #f3f3f3; /* Barras do menu mais claras */
+}
+
+/* Sidebar */
+body.modo-escuro .sidebar {
+    background: rgba(45, 45, 45, 0.95); /* Fundo do sidebar mais escuro */
+}
+
+body.modo-escuro .sidebar a {
+    color: #f3f3f3; /* Links do sidebar mais claros */
+}
+
+/* Top Bar e Search Box */
+body.modo-escuro .search-box input {
+    background-color: #23272b; /* Fundo do input da pesquisa mais escuro */
+    color: #f3f3f3; /* Texto do input mais claro */
+    border: 1px solid #444; /* Borda mais suave */
+}
+
+body.modo-escuro .search-box input::placeholder {
+    color: #bbb; /* Placeholder mais claro */
+}
+
+/* Aba de ajuda (.help-panel) */
+body.modo-escuro .help-panel {
+    background: #23272b; /* Fundo do painel de ajuda mais escuro */
+    box-shadow: -2px 0px 10px rgba(0,0,0,0.6); /* Sombra mais escura */
+}
+
+body.modo-escuro .help-header h2 {
+    color: #ffb74d; /* Título do painel de ajuda na cor do tema */
+}
+
+body.modo-escuro .problems p {
+    color: #f3f3f3; /* Texto dos problemas mais claro */
+}
+
+body.modo-escuro .help-footer {
+    background: #ffb74d; /* Fundo do botão de ajuda na cor do tema */
+    color: #18191a; /* Texto do botão de ajuda mais escuro */
+}
+
+/* Botão "Como usar o site?" */
+body.modo-escuro #btnComoUsar { /* Usar o ID para maior especificidade */
+    background-color: #ffb74d; /* Cor do botão na cor do tema */
+    color: #18191a; /* Texto do botão mais escuro */
+}
+
+/* Overlays (Como Usar, Conta, Contatos) - Ajustes gerais para modais */
+body.modo-escuro .overlay-como-usar .conteudo-como-usar {
+    background-color: #23272b; /* Fundo dos modais escuro */
+    color: #f3f3f3; /* Texto padrão dos modais claro */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Sombra mais escura */
+}
+
+body.modo-escuro .overlay-como-usar .fechar {
+    color: #ffb74d; /* Cor do X de fechar na cor do tema */
+}
+
+body.modo-escuro .overlay-como-usar .fechar:hover {
+    color: #f6941e; /* Hover na cor mais forte do tema */
+}
+
+body.modo-escuro .conteudo-como-usar h2 {
+    color: #ffb74d; /* Títulos dos modais na cor do tema */
+}
+
+body.modo-escuro .conteudo-como-usar li {
+    color: #f3f3f3; /* Itens da lista nos modais mais claros */
+}
+
+/* Ajustes específicos para o overlay da Conta */
+body.modo-escuro #overlayConta .conteudo-como-usar {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4); /* Sombra mais escura para o modal de conta */
+}
+
+body.modo-escuro #dadosConta strong {
+    color: #ffb74d; /* Destaque dos dados da conta na cor do tema */
+}
+
+body.modo-escuro #dadosConta img {
+    background: #23272b; /* Fundo da imagem de perfil no modal de conta */
+    border: 3px solid #ffb74d; /* Borda da imagem de perfil no modal de conta */
+}
+
+/* Ajustes específicos para o overlay de Contatos */
+body.modo-escuro #overlayContatos .conteudo-como-usar {
+    background: #23272b; /* Fundo do modal de contatos escuro */
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4); /* Sombra mais escura */
+}
+
+body.modo-escuro #overlayContatos h2 {
+    color: #ffb74d; /* Título de contatos na cor do tema */
+}
+
+body.modo-escuro #overlayContatos p {
+    color: #f3f3f3; /* Texto de contatos mais claro */
+}
+
+body.modo-escuro #overlayContatos h3 {
+    color: #ffb74d; /* Título "Redes Sociais" na cor do tema */
+}
+
+/* Ícones SVG nas redes sociais */
+body.modo-escuro .social-link {
+    background: #333; /* Fundo dos ícones sociais mais escuro */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4); /* Sombra mais escura */
+}
+
+body.modo-escuro .social-link:hover {
+    background: rgba(255, 183, 77, 0.2); /* Hover mais suave */
+    box-shadow: 0 4px 16px rgba(255, 183, 77, 0.3); /* Sombra de hover mais escura */
+}
+
+/* Ajustes para os SVGs (Facebook e Instagram) */
+body.modo-escuro .social-link svg rect {
+    stroke: #ffb74d; /* Borda dos retângulos SVG */
+    fill: #23272b; /* Fundo dos retângulos SVG */
+}
+
+body.modo-escuro .social-link svg circle {
+    stroke: #ffb74d; /* Borda dos círculos SVG */
+}
+
+body.modo-escuro .social-link svg path {
+    fill: #ffb74d; /* Preenchimento dos paths SVG (Instagram e Facebook) */
+}
+
+/* Exceção para o WhatsApp (mantém cores originais para reconhecimento) */
+body.modo-escuro .social-link a[title="WhatsApp"] svg circle {
+    fill: #25D366; /* Mantém o verde do WhatsApp */
+}
+body.modo-escuro .social-link a[title="WhatsApp"] svg path {
+    fill: #fff; /* Mantém o branco do ícone dentro do WhatsApp */
+}
