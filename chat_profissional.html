@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
     <link rel="stylesheet" href="./css/chat_profissional.css">
-
+    <link rel="stylesheet" href="./css/configuracoes.css" />
+    <script src="./js/theme-toggler.js"></script>
 </head>
 <body>
 
-    <div class="top-bar">
-        <span class="voltar" onclick="window.history.back()">⬅</span>
-        <img id="fotoProfissional" src="" alt="Foto">
-        <h2 id="nomeProfissional"></h2>
-    </div>
+    <div class="chat-container"> <div class="top-bar">
+            <button class="botao-voltar" onclick="window.history.back()">Voltar</button>
+            <img id="fotoProfissional" src="" alt="Foto do Profissional">
+            <h2 id="nomeProfissional"></h2>
+        </div>
 
-    <div class="chat-box" id="chatBox"></div>
+        <div class="chat-box" id="chatBox"></div>
 
-    <div class="input-box">
-        <input type="text" id="mensagem" placeholder="Digite sua mensagem...">
-        <button class="send-btn" onclick="enviarMensagem()">➤</button>
+        <div class="input-box">
+            <input type="text" id="mensagem" placeholder="Digite sua mensagem...">
+            <button class="send-btn" onclick="enviarMensagem()">➤</button>
+        </div>
     </div>
 
     <script>
@@ -30,6 +32,9 @@
 
         // Atualiza a tela com o profissional escolhido
         document.getElementById("nomeProfissional").textContent = nome;
+        // Certifique-se de que o caminho da foto está correto aqui.
+        // Se 'foto' já vem com o caminho completo (ex: 'src/imagens/homem1.jpeg'), use 'foto' diretamente.
+        // Se 'foto' vem apenas com o nome do arquivo (ex: 'homem1.jpeg'), mantenha './src/imagens/${foto}'.
         document.getElementById("fotoProfissional").src = `./src/imagens/${foto}`;
 
         // Carrega mensagens antigas
