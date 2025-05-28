@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profissionais</title>
     <link rel="stylesheet" href="./css/perfis.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Menu lateral -->
@@ -18,10 +20,12 @@
         <!-- Menu Lateral -->
         <div class="sidebar" id="sidebar">
             <a href="dashboard.html">Página Inicial</a>
-            <a href="#">Conta</a>
-            <a href="#">Configurações</a>
-            <a href="chat.html" id="chatBtn">Chat</a>
-            <a href="#">Sobre</a>
+            <a href="#" id="contaBtn">Conta</a>
+            <a href="configuracoes.html">Configurações</a>
+            <a href="profissionais.html">Chat</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="#">Contatos</a>
+            <a href="#" class="help" onclick="toggleHelp()">Ajuda</a>
         </div>
 
         <!-- Overlay para fechar o menu -->
@@ -44,46 +48,128 @@
         </script>
 
         <!-- Lista de perfis -->
-        <div class="profiles">
-            <div class="profile">
-                <img src= "./src/imagens/homem1.jpeg" alt="Profissional 1" class="profile-pic">
-                <div class="profile-info">
-                    <p>Nome: João Silva</p>
-                    <p>Suporte técnico presencial e remoto</p>
-                    <p>Gerenciamento de redes locais (LAN/WAN)</p>
-                    <a href="detalhes.html?profissional=João+Silva" class="saiba-mais">Saiba mais</a>
+        <div class="scrollable-content">
+            <div class="profiles">
+                <div class="profile">
+                    <img src="./src/imagens/homem1.jpeg" alt="Profissional 1" class="profile-pic">
+                    <div class="profile-info">
+                        <p>Nome: João Silva</p>
+                        <p>Suporte técnico presencial e remoto</p>
+                        <p>Gerenciamento de redes locais (LAN/WAN)</p>
+                        <a href="detalhes.html?profissional=João+Silva" class="saiba-mais">Saiba mais</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="profile">
-                <img src="./src/imagens/mulher1.jpg" alt="Profissional 2" class="profile-pic">
-                <div class="profile-info">
-                    <p>Nome: Ana Costa</p>
-                    <p>Desenvolvimento de aplicações web e mobile</p>
-                    <p>Controle de versão com Git/GitHub</p>
-                    <a href="detalhes.html?profissional=Ana+Costa" class="saiba-mais">Saiba mais</a>
+                <div class="profile">
+                    <img src="./src/imagens/mulher1.jpg" alt="Profissional 2" class="profile-pic">
+                    <div class="profile-info">
+                        <p>Nome: Ana Costa</p>
+                        <p>Desenvolvimento de aplicações web e mobile</p>
+                        <p>Controle de versão com Git/GitHub</p>
+                        <a href="detalhes.html?profissional=Ana+Costa" class="saiba-mais">Saiba mais</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="profile">
-                <img src="./src/imagens/homem2.jpg" alt="Profissional 3" class="profile-pic">
-                <div class="profile-info">
-                    <p>Nome: Carlos Lima</p>
-                    <p>Configuração e manutenção de redes (roteadores, switches, firewalls)</p>
-                    <p>Conhecimento em cloud computing (AWS, Azure)</p>
-                    <a href="detalhes.html?profissional=Carlos+Lima" class="saiba-mais">Saiba mais</a>
+                <div class="profile">
+                    <img src="./src/imagens/homem2.jpg" alt="Profissional 3" class="profile-pic">
+                    <div class="profile-info">
+                        <p>Nome: Carlos Lima</p>
+                        <p>Configuração e manutenção de redes (roteadores, switches, firewalls)</p>
+                        <p>Conhecimento em cloud computing (AWS, Azure)</p>
+                        <a href="detalhes.html?profissional=Carlos+Lima" class="saiba-mais">Saiba mais</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="profile">
-                <img src="./src/imagens/mulher2.jpeg" alt="Profissional 4" class="profile-pic">
-                <div class="profile-info">
-                    <p>Nome: Mariana Souza</p>
-                    <p>Análise de vulnerabilidades e testes de penetração</p>
-                    <p>Gerenciamento de firewalls e sistemas de detecção de intrusões (IDS/IPS)</p>
-                    <a href="detalhes.html?profissional=Mariana+Souza" class="saiba-mais">Saiba mais</a>
+                <div class="profile">
+                    <img src="./src/imagens/mulher2.jpeg" alt="Profissional 4" class="profile-pic">
+                    <div class="profile-info">
+                        <p>Nome: Mariana Souza</p>
+                        <p>Análise de vulnerabilidades e testes de penetração</p>
+                        <p>Gerenciamento de firewalls e sistemas de detecção de intrusões (IDS/IPS)</p>
+                        <a href="detalhes.html?profissional=Mariana+Souza" class="saiba-mais">Saiba mais</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Overlay da Conta -->
+    <div id="overlayConta" class="overlay-como-usar">
+        <div class="conteudo-como-usar">
+            <span class="fechar" onclick="fecharConta()">&times;</span>
+            <h2>Minha Conta</h2>
+            <div id="dadosConta">
+                <!-- Dados da conta serão inseridos aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay de Contatos (igual ao dashboard) -->
+    <div id="overlayContatos" class="overlay-como-usar">
+        <div class="conteudo-como-usar" style="max-width:420px;">
+            <span class="fechar" onclick="fecharContatos()">&times;</span>
+            <h2>Contatos</h2>
+            <p style="margin-bottom: 18px;">
+                <strong>E-mail:</strong> deliverydetisuporte@gmail.com<br>
+                <strong>Telefone:</strong> (11) 99999-9999<br>
+            </p>
+            <h3 style="color:#f6941e; margin-bottom: 8px;">Redes Sociais</h3>
+            <div style="display: flex; gap: 18px; justify-content: center; margin-bottom: 8px;">
+                <!-- Instagram -->
+                <a href="https://instagram.com/seuusuario" target="_blank" title="Instagram" class="social-link">
+                    <svg width="32" height="32" viewBox="0 0 448 512" fill="none">
+                        <rect x="32" y="32" width="384" height="384" rx="96" fill="white" stroke="#f6941e"
+                            stroke-width="24" />
+                        <circle cx="224" cy="224" r="80" stroke="#f6941e" stroke-width="24" fill="none" />
+                        <circle cx="336" cy="112" r="16" fill="#f6941e" />
+                    </svg>
+                </a>
+                <!-- Facebook -->
+                <a href="https://facebook.com/seuusuario" target="_blank" title="Facebook" class="social-link">
+                    <svg width="32" height="32" viewBox="0 0 320 512" fill="none">
+                        <rect x="16" y="16" width="288" height="480" rx="60" fill="white" stroke="#f6941e"
+                            stroke-width="16" />
+                        <path
+                            d="M208 176h40v-56h-40c-33 0-60 27-60 60v56h-40v56h40v120h56V288h40l8-56h-48v-40c0-11 9-20 20-20z"
+                            fill="#f6941e" />
+                    </svg>
+                </a>
+                <!-- WhatsApp -->
+                <a href="https://wa.me/5511999999999" target="_blank" title="WhatsApp" class="social-link">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="16" fill="#25D366" />
+                        <path
+                            d="M23.472 19.339c-.355-.178-2.1-1.037-2.424-1.156-.324-.119-.56-.178-.797.178-.237.355-.914 1.156-1.12 1.393-.207.237-.412.267-.767.089-.355-.178-1.5-.553-2.857-1.763-1.056-.943-1.77-2.106-1.98-2.461-.207-.355-.022-.547.156-.725.16-.159.355-.414.533-.621.178-.207.237-.355.355-.592.119-.237.06-.444-.03-.621-.089-.178-.797-1.924-1.09-2.637-.287-.689-.579-.595-.797-.606-.207-.009-.444-.011-.681-.011-.237 0-.621.089-.947.414-.324.324-1.24 1.211-1.24 2.949 0 1.738 1.269 3.417 1.447 3.654.178.237 2.5 3.823 6.055 5.215.847.365 1.507.583 2.023.747.849.271 1.624.233 2.236.142.682-.101 2.1-.859 2.398-1.691.296-.832.296-1.545.207-1.691-.089-.148-.324-.237-.679-.414z"
+                            fill="#fff" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Painel de Ajuda (igual ao dashboard) -->
+    <div class="help-panel" id="helpPanel">
+        <div class="help-header">
+            <a href="#" class="voltar-dashboard" onclick="toggleHelp(); return false;" style="margin-bottom:0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    style="vertical-align:middle;margin-right:6px;">
+                    <path d="M15 19l-7-7 7-7" stroke="#f6941e" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                Voltar
+            </a>
+            <h2>Problemas mais comuns</h2>
+        </div>
+        <div class="problems">
+            <p>🔧 Computador travando</p>
+            <p>📶 Problema com Wi-Fi</p>
+            <p>🔋 Bateria descarregando rápido</p>
+            <p>🖥️ Tela azul</p>
+            <p>📩 Erro ao enviar e-mail</p>
+        </div>
+        <div class="help-footer">
+            Problema específico ou não identificado
+            <img src="./src/imagens/ballon-text.png" alt="Chat" />
         </div>
     </div>
 
@@ -99,7 +185,58 @@
                 sidebar.style.left = "0px";
                 overlay.style.display = "block";
             }
+        };
+        document.querySelectorAll('.sidebar a').forEach(function (link) {
+            if (link.textContent.trim() === "Conta") {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    mostrarConta();
+                });
+            }
+        });
+
+        function mostrarConta() {
+            const conta = JSON.parse(localStorage.getItem('conta'));
+            if (!conta) {
+                document.getElementById('dadosConta').innerHTML = "<p>Nenhuma conta cadastrada.</p>";
+            } else {
+                document.getElementById('dadosConta').innerHTML = `
+            <div style="text-align:center;">
+                <img src="${conta.foto}" alt="Foto de perfil" style="width:80px;height:80px;border-radius:50%;border:2px solid #f6941e;margin-bottom:12px;">
+            </div>
+            <strong>Nome:</strong> ${conta.nome}<br>
+            <strong>CPF:</strong> ${conta.cpf}<br>
+            <strong>Data de nascimento:</strong> ${conta.nascimento}<br>
+            <strong>Endereço:</strong> ${conta.endereco}<br>
+            <strong>E-mail:</strong> ${conta.email}<br>
+            <strong>E-mail de recuperação:</strong> ${conta.emailRec}
+        `;
+            }
+            document.getElementById('overlayConta').style.display = 'flex';
         }
+        function fecharConta() {
+            document.getElementById('overlayConta').style.display = 'none';
+        };
+
+        function mostrarContatos() {
+            document.getElementById('overlayContatos').classList.add('active');
+        }
+        function fecharContatos() {
+            document.getElementById('overlayContatos').classList.remove('active');
+        }
+        function toggleHelp() {
+            const helpPanel = document.getElementById("helpPanel");
+            helpPanel.classList.toggle("active");
+        }
+        document.querySelectorAll('.sidebar a').forEach(function (link) {
+            if (link.textContent.trim() === "Contatos") {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    mostrarContatos();
+                });
+            }
+        });
     </script>
 </body>
+
 </html>

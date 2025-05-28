@@ -1,0 +1,107 @@
+.registro-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 24px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  width: 340px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.registro-container h2 {
+  margin-bottom: 18px;
+}
+.registro-container input,
+.registro-container select {
+  width: 95%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1.5px solid #f6941e;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #222;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.registro-container input[type="file"] {
+  padding: 4px 0;
+}
+.registro-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f6941e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 17px;
+  margin-top: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(246, 148, 30, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.registro-container button:hover {
+  background-color: #ff9800;
+}
+
+.foto-perfil-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 18px auto;
+}
+.foto-perfil-wrapper img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid #f6941e;
+  background: #fff;
+}
+.icone-lapis {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 50%;
+  border: 1.5px solid #f6941e;
+  padding: 4px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.icone-lapis:hover {
+  background: #ffe0b2;
+}
+.erro-form {
+  color: #d32f2f;
+  font-size: 0.98em;
+  margin-top: 8px;
+  text-align: center;
+  min-height: 22px;
+}
+
+.registro-link {
+  margin: 18px auto 0 auto;
+  text-align: center;
+  font-size: 1em;
+  color: #444;
+}
+
+.registro-link a {
+  color: #f6941e;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.registro-link a:hover {
+  color: #ff9800;
+  text-decoration: underline;
+}

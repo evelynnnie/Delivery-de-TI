@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.voltar-dashboard {
+    display: inline-flex;
+    align-items: center;
+    margin: 24px 0 0 24px;
+    font-size: 1.2em;
+    color: #f6941e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 4px;
+}
+.voltar-dashboard:hover {
+    color: #ff9800;
+}
+.voltar-dashboard svg path {
+    stroke: currentColor;
+    transition: stroke 0.2s;
+}
+.voltar-dashboard:hover svg path {
+    stroke: #ff9800;
+}
+
+h1{
+    text-align:center; 
+    margin-top: 32px;
+    color: #f6941e;
+}
+
+.profissionais-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 16px;
+}
+
+.profissional-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #0001;
+    padding: 24px 16px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+
+.profissional-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 2px solid #f6941e;
+}
+
+.profissional-card h3 {
+    margin: 12px 0 8px 0;
+}
+
+.profissional-card p {
+    color: #444;
+    margin-bottom: 18px;
+}
+
+.btn-detalhes {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #f6941e;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-detalhes:hover {
+    background: #ff9800;
+}
+
+@media (max-width: 1000px) {
+    .profissionais-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .profissionais-grid {
+        grid-template-columns: 1fr;
+    }
+}

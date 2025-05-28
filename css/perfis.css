@@ -20,23 +20,30 @@ body {
     border-radius: 20px;
     position: relative;
     padding: 20px;
-    overflow-y: auto; /* Garante que pode rolar caso tenha muitos perfis */
+    
 }
 
 /* Ícone do menu */
 .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Espaçamento entre as barras */
+    height: 24px; /* Altura total do menu */
+    justify-content: center; /* Centraliza as barras verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    cursor: pointer;
     position: absolute;
     top: 20px;
     left: 20px;
-    cursor: pointer;
     z-index: 15;
 }
 
-.menu .bar {
+.bar {
     width: 30px;
     height: 4px;
     background-color: black;
-    margin: 5px 0;
+    border-radius: 2px;
+    margin: 0; /* Remove qualquer margem extra */
 }
 
 /* Sidebar (menu lateral) */
@@ -95,7 +102,7 @@ body {
 
 /* Lista de perfis */
 .profiles {
-    margin-top: 80px; /* Para evitar sobreposição com a barra de pesquisa */
+     /* Para evitar sobreposição com a barra de pesquisa */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -153,4 +160,285 @@ body {
     .sidebar {
         width: 200px;
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#overlayConta.overlay-como-usar {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+#overlayConta .conteudo-como-usar {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(246,148,30,0.13);
+    padding: 36px 32px 28px 32px;
+    max-width: 420px;
+    width: 92%;
+    color: #2c3e50;
+    position: relative;
+    animation: slideUp 0.4s ease;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#overlayConta h2 {
+    color: #f6941e;
+    text-align: center;
+    margin-bottom: 22px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#overlayConta .fechar {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #f6941e;
+    transition: color 0.2s;
+}
+
+#overlayConta .fechar:hover {
+    color: #ff9800;
+}
+
+#dadosConta {
+    font-size: 1.08em;
+    line-height: 1.7;
+}
+
+#dadosConta img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2.5px solid #f6941e;
+    margin-bottom: 14px;
+    background: #fff;
+    object-fit: cover;
+}
+
+#dadosConta strong {
+    color: #f6941e;
+    font-weight: 600;
+}
+
+/* Overlay de contatos */
+#overlayContatos .conteudo-como-usar {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(246,148,30,0.13);
+    padding: 36px 32px 28px 32px;
+    max-width: 420px;
+    width: 92%;
+    color: #2c3e50;
+    position: relative;
+    animation: slideUp 0.4s ease;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#overlayContatos h2 {
+    color: #f6941e;
+    margin-bottom: 18px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 18px;
+}
+
+#overlayContatos p {
+    color: #444;
+    font-size: 1.08em;
+    margin-bottom: 12px;
+}
+
+/* Botão fechar igual ao dashboard */
+#overlayContatos .fechar {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+    z-index: 10;
+}
+#overlayContatos .fechar:hover {
+    color: #f6941e;
+}
+
+#overlayContatos .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f7f7f7;
+    width: 48px;
+    height: 48px;
+    transition: box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px #0001;
+}
+#overlayContatos .social-link:hover {
+    background: #f6941e22;
+    box-shadow: 0 4px 16px #f6941e33;
+}
+#overlayContatos .social-link svg {
+    display: block;
+}
+
+.help-panel {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0px 10px rgba(0,0,0,0.3);
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    z-index: 1001;
+}
+
+.help-panel.active {
+    left: 0;
+}
+
+/* Esconder três barras quando a aba de ajuda estiver ativa */
+.help-panel.active ~ .menu {
+    display: none;
+}
+
+/* Botão voltar */
+.help-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 10px 0 10px 10px;
+}
+
+.help-header {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.help-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    color: #222;
+}
+
+/* Lista de problemas */
+.problems {
+    flex: 1;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.problems p {
+    font-size: 18px;
+    padding: 8px;
+}
+
+/* Ajusta a posição do botão dentro da aba de ajuda */
+.help-footer {
+    position: absolute;
+    bottom: 130px; /* Mantém um pequeno espaçamento da borda */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    background: orange;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10; /* Garante que fique acima de outros elementos */
+}
+
+/* Ajuste do ícone dentro do botão */
+.help-footer img {
+    width: 50px;
+    height: 50px;
+    margin-left: 8px;
+}
+
+/* Overlay de contatos igual ao dashboard */
+.overlay-como-usar {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-como-usar.active {
+    display: flex;
+}
+
+/* Estilo para a área de conteúdo rolável */
+.scrollable-content {
+    height: calc(100vh - 120px); /* Ajuste essa altura conforme a necessidade */
+    /* 100vh menos a altura da barra de pesquisa e talvez um padding extra */
+    overflow-y: auto; /* Adiciona a barra de rolagem APENAS a este elemento */
+    padding-top: 80px; /* Garante que os perfis não fiquem escondidos atrás da barra de pesquisa fixa */
+    box-sizing: border-box; /* Inclui padding na altura total */
+}
+
+/* Ocultar a barra de rolagem para navegadores Webkit (Chrome, Safari) */
+.scrollable-content::-webkit-scrollbar {
+    width: 0; /* Largura da barra de rolagem */
+    background: transparent; /* Cor do fundo da barra de rolagem */
+}
+
+/* Ocultar a barra de rolagem para Firefox */
+.scrollable-content {
+    scrollbar-width: none; /* "none" para ocultar, "auto" para mostrar, "thin" para fina */
 }

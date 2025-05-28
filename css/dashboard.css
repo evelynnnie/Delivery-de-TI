@@ -164,18 +164,21 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 10px;
+    gap: 32px;
+    padding: 10px 0 10px 10px;
 }
 
-.help-header .back-btn {
-    font-size: 24px;
-    cursor: pointer;
-    margin-right: 10px;
+.help-header .voltar-dashboard {
+    margin: 0;
+    font-size: 1.1em;
 }
 
 .help-header h2 {
     margin: 0;
-    font-size: 22px;
+    font-size: 1.5em;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    color: #222;
 }
 
 /* Lista de problemas */
@@ -230,9 +233,9 @@ body {
 /* Botão */
 .btn-como-usar {
     position: fixed;
-    top: 20px;
+    top: 48px;
     right: 20px;
-    background-color: orange;
+    background-color: rgba(255, 140, 0, 0.95);
     color: white;
     font-weight: bold;
     border: none;
@@ -253,7 +256,6 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 2000;
-    display: flex;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(6px);
@@ -326,4 +328,138 @@ body {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+/* Overlay da Conta */
+#overlayConta.overlay-como-usar {
+    z-index: 3000;
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(6px);
+    display: none; /* já controlado pelo JS */
+    justify-content: center;
+    align-items: center;
+}
+
+#overlayConta .conteudo-como-usar {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(246,148,30,0.13);
+    padding: 36px 32px 28px 32px;
+    max-width: 420px;
+    width: 92%;
+    color: #2c3e50;
+    position: relative;
+    animation: slideUp 0.4s ease;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#overlayConta h2 {
+    color: #f6941e;
+    text-align: center;
+    margin-bottom: 22px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#overlayConta .fechar {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #f6941e;
+    transition: color 0.2s;
+}
+
+#overlayConta .fechar:hover {
+    color: #ff9800;
+}
+
+#dadosConta {
+    font-size: 1.08em;
+    line-height: 1.7;
+}
+
+#dadosConta img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2.5px solid #f6941e;
+    margin-bottom: 14px;
+    background: #fff;
+    object-fit: cover;
+}
+
+#dadosConta strong {
+    color: #f6941e;
+    font-weight: 600;
+}
+
+/* Overlay de contatos */
+#overlayContatos .conteudo-como-usar {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px 24px 24px;
+    box-shadow: 0 8px 32px #0002;
+    text-align: center;
+    animation: slideUp 0.4s;
+}
+
+#overlayContatos h2 {
+    color: #f6941e;
+    margin-bottom: 18px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+#overlayContatos p {
+    color: #444;
+    font-size: 1.08em;
+    margin-bottom: 12px;
+}
+
+#overlayContatos .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f7f7f7;
+    width: 48px;
+    height: 48px;
+    transition: box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px #0001;
+}
+#overlayContatos .social-link:hover {
+    background: #f6941e22;
+    box-shadow: 0 4px 16px #f6941e33;
+}
+#overlayContatos .social-link svg {
+    display: block;
+}
+
+.voltar-dashboard {
+    display: inline-flex;
+    align-items: center;
+    margin: 24px 0 0 24px;
+    font-size: 1.2em;
+    color: #f6941e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 4px;
+}
+.voltar-dashboard:hover {
+    color: #ff9800;
+}
+.voltar-dashboard svg path {
+    stroke: currentColor;
+    transition: stroke 0.2s;
+}
+.voltar-dashboard:hover svg path {
+    stroke: #ff9800;
 }

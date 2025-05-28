@@ -1,0 +1,49 @@
+.sobre-container {
+  max-width: 600px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #0002;
+  padding: 36px 28px;
+}
+.sobre-container h1 {
+  color: #f6941e;
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 2em;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.sobre-container p {
+  text-align: justify;
+  line-height: 1.7;
+  font-size: 1.15em;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #2c3e50;
+}
+
+.voltar-dashboard {
+    display: inline-flex;
+    align-items: center;
+    margin: 24px 0 0 24px;
+    font-size: 1.2em;
+    color: #f6941e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 4px;
+}
+.voltar-dashboard:hover {
+    color: #ff9800;
+}
+.voltar-dashboard svg path {
+    stroke: currentColor;
+    transition: stroke 0.2s;
+}
+.voltar-dashboard:hover svg path {
+    stroke: #ff9800;
+}

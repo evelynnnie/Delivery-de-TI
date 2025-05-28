@@ -113,8 +113,11 @@
 
         function escolherProfissional() {
             const nome = document.getElementById("nomeProfissional").textContent;
-            const foto = document.getElementById("fotoProfissional").src;
-            window.location.href = `contato.html?nome=${encodeURIComponent(nome)}&foto=${encodeURIComponent(foto)}`;
+            // Altere para pegar apenas o nome do arquivo da foto
+            const fotoSrcCompleta = document.getElementById("fotoProfissional").src;
+            const nomeArquivoFoto = fotoSrcCompleta.substring(fotoSrcCompleta.lastIndexOf('/') + 1);
+
+            window.location.href = `chat_profissional.html?nome=${encodeURIComponent(nome)}&foto=${encodeURIComponent(nomeArquivoFoto)}`;
         }
     </script>
 </body>

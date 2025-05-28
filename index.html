@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery de TI</title>
     <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
     <div class="login-container">
         <img src="./src/imagens/delivery de ti.jpg" alt="Logo da Empresa" class="logo">
@@ -13,12 +15,78 @@
         <form action="dashboard.html">
             <input type="email" placeholder="Digite seu e-mail" required>
             <input type="password" placeholder="Digite sua senha" required>
+            <div class="forgot-password">
+                <a href="#">Esqueci minha senha</a>
+            </div>
+            <div class="registro-link">
+                Não possui conta? <a href="registro.html">Registre-se aqui</a>
+            </div>
             <label class="checkbox">
                 <input type="checkbox" required>
-                Li e aceito os <a href="#">termos e condições</a>
+                Li e aceito os <a href="#" onclick="abrirTermos(event)">termos e condições</a>
             </label>
             <button type="submit">Entrar</button>
         </form>
     </div>
+
+    <!-- Overlay para Termos e Condições -->
+    <!-- Overlay para Termos e Condições -->
+    <div id="overlay-termos" class="overlay-termos">
+        <div class="conteudo-termos">
+            <span class="fechar-termos" onclick="fecharTermos()">&times;</span>
+            <h2>Termos e Condições</h2>
+            <ul>
+                <li>Seus dados serão utilizados apenas para fins de cadastro e funcionamento do sistema.</li>
+                <li>Suas informações não serão compartilhadas com terceiros sem sua autorização.</li>
+                <li>Você é responsável pela veracidade dos dados fornecidos.</li>
+                <li>É proibido utilizar o sistema para fins ilícitos ou prejudiciais.</li>
+                <li>Os termos podem ser atualizados a qualquer momento, sendo informado por este canal.</li>
+            </ul>
+            <p>Em caso de dúvidas, entre em contato pelo e-mail <a
+                    href="mailto:deliverydetisuporte@gmail.com">deliverydetisuporte@gmail.com</a>.</p>
+        </div>
+    </div>
+    <!-- Overlay para redefinir senha -->
+    <div id="overlay-reset" class="overlay-reset">
+        <div class="reset-content">
+            <span class="close-reset" onclick="fecharReset()">&times;</span>
+            <h3>Redefinir senha</h3>
+            <p>Informe seu e-mail cadastrado para receber o link de redefinição:</p>
+            <form onsubmit="enviarReset(event)">
+                <input type="email" id="reset-email" placeholder="Seu e-mail" required>
+                <button type="submit">Enviar</button>
+            </form>
+            <div id="reset-msg"></div>
+        </div>
+    </div>
+
+    <script>
+        function abrirTermos(e) {
+            e.preventDefault();
+            document.getElementById('overlay-termos').classList.add('active');
+        }
+        function fecharTermos() {
+            document.getElementById('overlay-termos').classList.remove('active');
+        }
+
+        document.querySelector('.forgot-password a').onclick = function (e) {
+            e.preventDefault();
+            document.getElementById('overlay-reset').classList.add('active');
+        };
+
+        function fecharReset() {
+            document.getElementById('overlay-reset').classList.remove('active');
+            document.getElementById('reset-msg').textContent = '';
+            document.getElementById('reset-email').value = '';
+        }
+
+        function enviarReset(event) {
+            event.preventDefault();
+            // Aqui você pode integrar com backend. Exemplo de feedback visual:
+            document.getElementById('reset-msg').textContent = 'Se este e-mail estiver cadastrado, você receberá um link para redefinir sua senha.';
+            document.getElementById('reset-msg').style.color = '#28a745';
+        }
+    </script>
 </body>
+
 </html>

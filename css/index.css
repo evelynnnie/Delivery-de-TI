@@ -32,21 +32,58 @@ body {
 
 /* Campos de entrada com fundo laranja */
 input[type="email"], input[type="password"] {
-    width: 90%; /* Reduz a largura para não encostar na borda */
+    width: 90%;
     padding: 10px;
     margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f6941e; /* Cor laranja */
-    color: white;
+    border: 1.5px solid #f6941e;
+    border-radius: 8px;
+    background-color: #fff;      /* fundo branco */
+    color: #222;                 /* texto escuro */
     font-size: 16px;
-    box-sizing: border-box; /* Evita que o padding estoure o tamanho */
+    box-sizing: border-box;
+    transition: border 0.2s, box-shadow 0.2s;
 }
 
-/* Placeholder branco */
+input[type="email"]:focus, input[type="password"]:focus {
+    border: 2px solid #ff9800;
+    box-shadow: 0 0 0 2px #ffe0b2;
+    outline: none;
+}
+
 input::placeholder {
-    color: white;
-    opacity: 0.8;
+    color: #f6941e;
+    opacity: 1;
+    font-weight: 500;
+}
+
+.forgot-password{
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+.forgot-password a,
+.registro-link a {
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.forgot-password a {
+    color: #007bff;
+}
+
+.forgot-password a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.registro-link a {
+    color: #f6941e;
+}
+
+.registro-link a:hover {
+    color: #ff9800;
+    text-decoration: underline;
 }
 
 /* Checkbox e termos alinhados corretamente */
@@ -79,16 +116,178 @@ input::placeholder {
 /* Botão de login */
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #f6941e;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 17px;
     margin-top: 10px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(246,148,30,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-    background-color: #f6941e;
+    background-color: #ff9800;
+    box-shadow: 0 4px 16px rgba(246,148,30,0.15);
+}
+
+/* Overlay para Termos e Condições */
+.overlay-termos {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.75);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.3s ease;
+}
+
+.overlay-termos.active {
+    display: flex;
+}
+
+.conteudo-termos {
+    background: #fff;
+    padding: 36px 48px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 520px;
+    color: #2c3e50;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    animation: slideUp 0.4s ease;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.conteudo-termos h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #f6941e;
+    font-weight: 700;
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.conteudo-termos ul {
+    list-style: disc inside;
+    padding-left: 0;
+    margin-bottom: 18px;
+}
+
+.conteudo-termos li {
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+.conteudo-termos a {
+    color: #f6941e;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.fechar-termos {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #f6941e;
+    transition: color 0.3s;
+}
+
+.fechar-termos:hover {
+    color: #ff9800;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Overlay para redefinir senha */
+.overlay-reset {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-reset.active {
+    display: flex;
+}
+
+.reset-content {
+    background: #fff;
+    padding: 32px 24px 24px 24px;
+    border-radius: 12px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+    max-width: 340px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.close-reset {
+    position: absolute;
+    top: 12px; right: 16px;
+    font-size: 1.5em;
+    color: #f6941e;
+    cursor: pointer;
+}
+
+.reset-content input[type="email"] {
+    width: 90%;
+    padding: 10px;
+    margin: 18px 0 12px 0;
+    border: 1.5px solid #f6941e;
+    border-radius: 8px;
+    background-color: #fff;   /* igual aos outros */
+    color: #222;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.reset-content input[type="email"]:focus {
+    border: 2px solid #ff9800;
+    box-shadow: 0 0 0 2px #ffe0b2;
+    outline: none;
+}
+
+.reset-content button {
+    background: #f6941e;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.reset-content button:hover {
+    background: #ff9800;
 }

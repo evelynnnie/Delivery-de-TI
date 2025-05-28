@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+    <link rel="stylesheet" href="./css/registro.css">
+</head>
+
+<body>
+    <div class="registro-container">
+        <h2>Registrar</h2>
+        <form id="form-registro" autocomplete="off">
+            <div class="foto-perfil-wrapper">
+                <img id="foto-perfil" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto de perfil">
+                <label for="input-foto" class="icone-lapis" title="Alterar foto">
+                    <svg width="22" height="22" fill="#f6941e" viewBox="0 0 24 24">
+                        <path
+                            d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                    </svg>
+                    <input type="file" id="input-foto" accept="image/*" style="display:none">
+                </label>
+            </div>
+            <input type="text" id="nome" placeholder="Nome completo" minlength="15" maxlength="70" required>
+            <input type="text" placeholder="CPF" required maxlength="14">
+            <input type="date" placeholder="Data de nascimento" required>
+            <input type="text" placeholder="Endereço completo" required>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="email" id="email-recuperacao" placeholder="E-mail de recuperação" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <input type="password" id="senha2" placeholder="Digite a senha novamente" required>
+            <button type="submit">Registrar</button>
+            <div id="erro-form" class="erro-form"></div>
+        </form>
+        <div class="registro-link">
+            Já possui conta?
+            <a href="index.html">Faça login aqui</a>
+        </div>
+
+    </div>
+    <script>
+        document.querySelector('.registro-link a').onclick = function (e) {
+            e.preventDefault();
+            window.location.href = "index.html";
+        };
+        document.getElementById('form-registro').onsubmit = function (e) {
+            e.preventDefault();
+            // Aqui você pode adicionar validação extra se quiser
+            window.location.href = "index.html";
+        };
+
+        const inputFoto = document.getElementById('input-foto');
+        const fotoPerfil = document.getElementById('foto-perfil');
+        inputFoto.addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = e => fotoPerfil.src = e.target.result;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        document.getElementById('form-registro').onsubmit = function (e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const emailRec = document.getElementById('email-recuperacao').value.trim();
+            const senha = document.getElementById('senha').value;
+            const senha2 = document.getElementById('senha2').value;
+            const erro = document.getElementById('erro-form');
+            erro.textContent = "";
+            if (nome.length < 15 || nome.length > 70) {
+                erro.textContent = "O nome completo deve ter entre 15 e 70 caracteres.";
+                erro.scrollIntoView({ behavior: "smooth", block: "center" });
+                return;
+            }
+            if (email === emailRec) {
+                erro.textContent = "O e-mail de recuperação deve ser diferente do e-mail principal.";
+                erro.scrollIntoView({ behavior: "smooth", block: "center" });
+                return;
+            }
+            if (senha !== senha2) {
+                erro.textContent = "As senhas não coincidem.";
+                erro.scrollIntoView({ behavior: "smooth", block: "center" });
+                return;
+            }
+            const foto = document.getElementById('foto-perfil').src;
+            const cpf = document.querySelector('input[placeholder="CPF"]').value.trim();
+            const nascimento = document.querySelector('input[type="date"]').value;
+            const endereco = document.querySelector('input[placeholder="Endereço completo"]').value.trim();
+            localStorage.setItem('conta', JSON.stringify({
+                nome, email, emailRec, foto, cpf, nascimento, endereco
+            }));
+            // Se passou, pode enviar (simulação)
+            window.location.href = "index.html";
+        };
+    </script>
+</body>
+
+</html>

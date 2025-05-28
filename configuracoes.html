@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configurações</title>
+    <link rel="stylesheet" href="./css/configuracoes.css" />
+</head>
+
+<body>
+    <div class="configuracoes-wrapper">
+        <div class="bloco-config">
+            <h2>Configurações da Conta</h2>
+            <form id="formConfigConta" autocomplete="off">
+                <div style="text-align:center;">
+                    <img id="fotoConfigConta" src="" alt="Foto de perfil">
+                    <br>
+                    <label for="inputFotoConfig" class="btn-mudar-foto">Mudar foto de perfil</label>
+                    <input type="file" id="inputFotoConfig" accept="image/*" style="display:none;">
+                </div>
+                <label>Nome:
+                    <input type="text" id="nomeConfig" required minlength="15" maxlength="70">
+                </label>
+                <label>CPF:
+                    <input type="text" id="cpfConfig" required maxlength="14">
+                </label>
+                <label>Data de nascimento:
+                    <input type="date" id="nascimentoConfig" required>
+                </label>
+                <label>Endereço:
+                    <input type="text" id="enderecoConfig" required>
+                </label>
+                <label>E-mail:
+                    <input type="email" id="emailConfig" required>
+                </label>
+                <label>E-mail de recuperação:
+                    <input type="email" id="emailRecConfig" required>
+                </label>
+                <button type="submit">Salvar Alterações</button>
+                <div id="erroConfigConta"></div>
+            </form>
+        </div>
+
+        <div class="bloco-config">
+            <h3>Configurações do Site</h3>
+            <div id="configSite">
+                <label class="switch">
+                    <input type="checkbox" id="temaEscuro">
+                    <span class="slider"></span>
+                    Tema escuro
+                </label>
+                <label class="switch">
+                    <input type="checkbox" id="notificacoes">
+                    <span class="slider"></span>
+                    Receber notificações
+                </label>
+                <label>
+                    Tamanho da fonte:
+                    <select id="tamanhoFonte">
+                        <option value="normal">Normal</option>
+                        <option value="grande">Grande</option>
+                        <option value="extra-grande">Extra Grande</option>
+                    </select>
+                </label>
+                <label class="switch">
+                    <input type="checkbox" id="layoutCompacto">
+                    <span class="slider"></span>
+                    Layout compacto
+                </label>
+                <label class="switch">
+                    <input type="checkbox" id="somNotificacoes">
+                    <span class="slider"></span>
+                    Som de notificações
+                </label>
+            </div>
+            <a href="dashboard.html" class="voltar-dashboard">Voltar ao Dashboard</a>
+        </div>
+    </div>
+
+    <script src="./js/configuracoes.js"></script>
+</body>
+
+</html>

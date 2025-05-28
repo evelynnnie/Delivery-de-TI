@@ -1,0 +1,376 @@
+/* === Base === */
+body {
+    background: #f5f5f5;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* === Modo Escuro === */
+body.modo-escuro {
+    background: #18191a;
+    color: #f3f3f3;
+}
+
+body.modo-escuro,
+body.modo-escuro label,
+body.modo-escuro #configSite label,
+body.modo-escuro #formConfigConta label,
+body.modo-escuro h2,
+body.modo-escuro h3,
+body.modo-escuro .voltar-dashboard {
+    color: #ffb74d;
+    opacity: 1;
+}
+
+body.modo-escuro h2,
+body.modo-escuro h3,
+body.modo-escuro .voltar-dashboard {
+    text-shadow: 0 2px 8px #18181844;
+}
+
+body.modo-escuro .bloco-config {
+    background: #23272b;
+    color: #f3f3f3;
+    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.32);
+    border: 1.5px solid #292d32;
+}
+
+body.modo-escuro #formConfigConta input[type="text"],
+body.modo-escuro #formConfigConta input[type="email"],
+body.modo-escuro #formConfigConta input[type="date"],
+body.modo-escuro #configSite select {
+    background: #18191a;
+    color: #fff;
+    border: 1.7px solid #ffb74d;
+    box-shadow: 0 1px 4px #0002;
+}
+
+body.modo-escuro #formConfigConta input:focus,
+body.modo-escuro #configSite select:focus {
+    background: #23272b;
+    border-color: #f6941e;
+    outline: none;
+}
+
+body.modo-escuro #formConfigConta input[type="file"] {
+    background: transparent;
+}
+
+body.modo-escuro #formConfigConta button {
+    background: linear-gradient(90deg, #f6941e 60%, #ffb74d 100%);
+    color: #232323;
+    box-shadow: 0 2px 8px #0003;
+    border: none;
+}
+
+body.modo-escuro #formConfigConta button:hover {
+    background: linear-gradient(90deg, #ffb74d 60%, #f6941e 100%);
+    color: #18191a;
+}
+
+body.modo-escuro #formConfigConta img {
+    background: #23272b;
+    border: 3px solid #ffb74d;
+    box-shadow: 0 2px 8px #0004;
+}
+
+body.modo-escuro #configSite select {
+    background: #23272b;
+    border: 1.5px solid #ffb74d;
+}
+
+body.modo-escuro #configSite input[type="checkbox"] {
+    accent-color: #ffb74d;
+}
+
+body.modo-escuro .voltar-dashboard:hover {
+    color: #fff176;
+}
+
+body.modo-escuro #erroConfigConta {
+    color: #ff7675;
+}
+
+body.modo-escuro input::placeholder,
+body.modo-escuro textarea::placeholder {
+    color: #e0e0e0;
+    opacity: 1;
+}
+
+body.modo-escuro input:disabled,
+body.modo-escuro select:disabled,
+body.modo-escuro textarea:disabled {
+    background: #23272b;
+    color: #bdbdbd;
+    border-color: #ffb74d;
+    opacity: 1;
+}
+
+body.modo-escuro #configSite label:has(input:disabled),
+body.modo-escuro #configSite label:has(select:disabled) {
+    color: #bdbdbd;
+}
+
+/* === Layout === */
+.configuracoes-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 32px;
+    max-width: 1100px;
+    margin: 48px auto 0;
+    padding: 0 16px;
+}
+
+.bloco-config {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(246, 148, 30, 0.1);
+    padding: 32px 28px 28px;
+    flex: 1 1 350px;
+    min-width: 320px;
+    max-width: 480px;
+}
+
+.bloco-config h2,
+.bloco-config h3 {
+    color: #f6941e;
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.35em;
+    font-weight: bold;
+}
+
+/* === Botão: Mudar Foto === */
+.btn-mudar-foto {
+    display: inline-block;
+    margin: 10px auto 18px;
+    padding: 7px 18px;
+    background: linear-gradient(90deg, #f6941e 60%, #ffb74d 100%);
+    color: #fff !important;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    border: none;
+    box-shadow: 0 2px 8px #0002;
+    max-width: 220px;
+    text-shadow: 0 1px 4px #f6941e33;
+}
+
+.btn-mudar-foto:hover {
+    background: linear-gradient(90deg, #ffb74d 60%, #f6941e 100%);
+}
+
+body.modo-escuro .btn-mudar-foto,
+body.modo-escuro .btn-mudar-foto:hover {
+    color: #18191a !important;
+    text-shadow: none;
+}
+
+/* === Formulário Configuração === */
+#formConfigConta label,
+#configSite label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1em;
+    color: #333;
+}
+
+#formConfigConta input[type="text"],
+#formConfigConta input[type="email"],
+#formConfigConta input[type="date"],
+#configSite select {
+    width: 100%;
+    margin: 4px 0;
+    padding: 7px 10px;
+    border: 1.5px solid #f6941e;
+    border-radius: 7px;
+    background: #fafafa;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+#formConfigConta input[type="file"] {
+    margin-top: 8px;
+}
+
+#formConfigConta button {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    padding: 10px 22px;
+    background: #f6941e;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#formConfigConta button:hover {
+    background: #ff9800;
+}
+
+#formConfigConta img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+    border: 2.5px solid #f6941e;
+    border-radius: 50%;
+    background: #fff;
+    object-fit: cover;
+}
+
+#erroConfigConta {
+    color: #d32f2f;
+    min-height: 18px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+#configSite select {
+    margin-left: 6px;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+#configSite input[type="checkbox"] {
+    accent-color: #f6941e;
+    margin-right: 6px;
+}
+
+/* === Link Voltar === */
+.voltar-dashboard {
+    display: block;
+    margin-top: 32px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #f6941e;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.voltar-dashboard:hover {
+    color: #ff9800;
+}
+
+/* === Responsividade === */
+@media (max-width: 900px) {
+    .configuracoes-wrapper {
+        flex-direction: column;
+        gap: 24px;
+        align-items: stretch;
+    }
+
+    .bloco-config {
+        max-width: 100%;
+    }
+}
+
+/* === Switch === */
+.switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 1em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+
+.slider {
+    position: relative;
+    width: 38px;
+    height: 22px;
+    background: #ccc;
+    border-radius: 22px;
+    transition: background 0.3s;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 1px 4px #0002;
+}
+
+.switch input:checked + .slider {
+    background: #f6941e;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(16px);
+    background: #fffbe7;
+}
+
+.switch input:disabled + .slider {
+    background: #8884;
+    cursor: not-allowed;
+}
+
+.switch input:disabled + .slider:before {
+    background: #eee;
+}
+
+/* === Modo escuro - Switch === */
+body.modo-escuro .slider {
+    background: #444;
+}
+
+body.modo-escuro .switch input:checked + .slider {
+    background: #ffb74d;
+}
+
+body.modo-escuro .switch input:checked + .slider:before {
+    background: #232323;
+}
+
+/* === Layout Compacto === */
+body.layout-compacto .bloco-config {
+    padding: 16px 10px 10px;
+    max-width: 400px;
+}
+
+body.layout-compacto label,
+body.layout-compacto .switch {
+    margin-bottom: 6px;
+    font-size: 0.95em;
+}
+
+body.layout-compacto input,
+body.layout-compacto select,
+body.layout-compacto button {
+    padding: 5px 8px !important;
+    font-size: 0.95em !important;
+}
+
+body.layout-compacto h2,
+body.layout-compacto h3 {
+    margin-bottom: 12px;
+    font-size: 1.1em;
+}
+
+body.layout-compacto .btn-mudar-foto {
+    padding: 5px 12px;
+    font-size: 0.95em;
+}
