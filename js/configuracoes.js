@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fotoConfigConta.src = savedPhoto;
   } else {
     // Defina uma imagem padrão se não houver foto salva
-    fotoConfigConta.src = "caminho/para/sua/foto_padrao.png"; // SUBSTITUA PELO CAMINHO REAL DA SUA FOTO PADRÃO
+    fotoConfigConta.src = "../src/imagens/fotopadrao.jpg"; // SUBSTITUA PELO CAMINHO REAL DA SUA FOTO PADRÃO
   }
 
   inputFotoConfig.addEventListener("change", (event) => {

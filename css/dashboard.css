@@ -483,13 +483,38 @@ body.modo-escuro .menu .bar {
     background-color: #f3f3f3; /* Barras do menu mais claras */
 }
 
-/* Sidebar */
+/* === Complementos de Estilo para Modo Escuro no Dashboard === */
+
+/* ... (Mantenha todos os ajustes anteriores que fizemos para o dashboard) ... */
+
+/* Ajustes para a Sidebar no Modo Escuro */
 body.modo-escuro .sidebar {
-    background: rgba(45, 45, 45, 0.95); /* Fundo do sidebar mais escuro */
+    background: #3A2B1E; /* Laranja muito escuro, quase marrom, para o fundo */
+    border-right: 1px solid #4D3D2C; /* Borda sutil para separar do conteúdo */
 }
 
 body.modo-escuro .sidebar a {
-    color: #f3f3f3; /* Links do sidebar mais claros */
+    color: #f3f3f3; /* Cor do texto dos links normal (branco suave) */
+    transition: color 0.2s, background-color 0.2s; /* Transição para o hover */
+}
+
+body.modo-escuro .sidebar a:hover {
+    background-color: rgba(255, 193, 7, 0.1); /* Laranja "dourado" com pouca opacidade no hover */
+    color: #FFC107; /* Laranja "dourado" para o texto no hover */
+}
+
+/* Se houver um item de menu ATIVO, você pode querer um destaque maior */
+/* Substitua '.sidebar a.active' pelo seletor correto do seu item ativo, se houver */
+body.modo-escuro .sidebar a.active {
+    background-color: rgba(255, 193, 7, 0.2); /* Laranja "dourado" com mais opacidade para o ativo */
+    color: #FFC107; /* Laranja "dourado" para o texto do item ativo */
+    border-left: 3px solid #FFC107; /* Borda laranja para destacar o item ativo */
+    padding-left: 17px; /* Ajuste o padding para compensar a borda, se necessário */
+}
+
+/* Exemplo de como ficaria o ícone do menu (hambúrguer) se ele existir e for afetado */
+body.modo-escuro .menu-icon .bar { 
+    background-color: #f3f3f3; 
 }
 
 /* Top Bar e Search Box */
@@ -524,7 +549,7 @@ body.modo-escuro .help-footer {
 
 /* Botão "Como usar o site?" */
 body.modo-escuro #btnComoUsar { /* Usar o ID para maior especificidade */
-    background-color: #ffb74d; /* Cor do botão na cor do tema */
+    background: #ed9613; /* Cor do botão na cor do tema */
     color: #18191a; /* Texto do botão mais escuro */
 }
 

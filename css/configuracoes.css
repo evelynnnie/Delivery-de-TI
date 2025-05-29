@@ -315,7 +315,7 @@ body.modo-escuro .btn-mudar-foto:hover {
 }
 
 .switch input:checked + .slider {
-    background: #f6941e;
+    background: #da8114;
 }
 
 .switch input:checked + .slider:before {
@@ -338,7 +338,7 @@ body.modo-escuro .slider {
 }
 
 body.modo-escuro .switch input:checked + .slider {
-    background: #ffb74d;
+    background: #ed9613;
 }
 
 body.modo-escuro .switch input:checked + .slider:before {
