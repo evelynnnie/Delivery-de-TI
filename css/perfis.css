@@ -1,41 +1,56 @@
-/* Reset básico */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-size: cover;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Mantido para centralizar o .container */
+    justify-content: center; /* Mantido para centralizar o .container */
+    align-items: center; /* Mantido para centralizar o .container */
     height: 100vh;
+    overflow: hidden; /* IMPORTANTE: Esconde a barra de rolagem do body */
 }
 
 /* Container principal */
 .container {
     width: 90%;
-    max-width: 400px;
-    height: 90vh;
+    max-width: 600px;
+    height: 90vh; /* Ocupa 90% da altura da viewport */
     background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     position: relative;
-    padding: 20px;
-    
+    padding: 0; /* REMOVIDO o padding do container. Será no scrollable-content */
+    display: flex; /* NOVO: Torna o container flexível */
+    flex-direction: column; /* NOVO: Empilha os itens verticalmente */
+    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho total */
+}
+
+/* NOVA SEÇÃO: Top Bar (conforme seu HTML) */
+.top-bar {
+    width: 100%;
+    display: flex; /* Torna a top-bar flexível para organizar menu e search-box */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    padding: 15px 20px; /* Padding interno para a top-bar */
+    box-sizing: border-box;
+    min-height: 60px; /* Altura mínima para a top-bar, ajuste se necessário */
+    background: white; /* Fundo branco para a top-bar no modo claro */
+    border-top-left-radius: 20px; /* Arredonda as bordas para combinar com o container */
+    border-top-right-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
 }
 
 /* Ícone do menu */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 4px; /* Espaçamento entre as barras */
-    height: 24px; /* Altura total do menu */
-    justify-content: center; /* Centraliza as barras verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
+    gap: 4px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 15;
+    /* REMOVIDO: position: absolute, top, left, z-index */
+    /* Agora ele é um item flex dentro da top-bar */
+    margin-right: 15px; /* Espaço entre o menu e a search-box */
 }
 
 .bar {
@@ -43,7 +58,7 @@ body {
     height: 4px;
     background-color: black;
     border-radius: 2px;
-    margin: 0; /* Remove qualquer margem extra */
+    margin: 0;
 }
 
 /* Sidebar (menu lateral) */
@@ -53,13 +68,14 @@ body {
     left: -250px;
     width: 250px;
     height: 100%;
-    background: rgba(255, 140, 0, 0.95); /* Laranja menos transparente */
+    background: rgba(255, 140, 0, 0.95);
     transition: left 0.3s ease-in-out;
     padding-top: 60px;
-    z-index: 20; /* Garante que fica acima de outros elementos */
+    z-index: 20; /* Garante que fica acima de outros elementos, inclusive a top-bar */
 }
 
 .sidebar a {
+    font-size: 18px;
     display: block;
     color: white;
     padding: 15px;
@@ -80,29 +96,28 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 19;
+    z-index: 19; /* Abaixo do sidebar, mas acima de outros elementos */
 }
 
 /* Caixa de pesquisa */
 .search-box {
-    position: absolute;
-    top: 20px;
-    left: 60px; /* Ajustado para não ficar sobre o menu */
-    width: 75%;
-    z-index: 10;
+    /* REMOVIDO: position: absolute, top, left, z-index */
+    /* Agora ele é um item flex dentro da top-bar */
+    flex-grow: 1; /* Faz a search-box ocupar o espaço restante na top-bar */
+    width: auto; /* Anula a largura fixa para flex-grow funcionar */
 }
 
 .search-box input {
     width: 100%;
     padding: 10px;
-    border: 2px solid black;
-    border-radius: 10px;
+    border: 1px solid #333;
+    border-radius: 20px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 /* Lista de perfis */
 .profiles {
-     /* Para evitar sobreposição com a barra de pesquisa */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -154,11 +169,15 @@ body {
 /* Responsividade */
 @media (max-width: 500px) {
     .search-box {
-        width: 65%;
+        width: auto; /* Deixa o flex-grow cuidar da largura */
     }
 
     .sidebar {
         width: 200px;
+    }
+
+    .menu {
+        margin-right: 10px; /* Reduz a margem para telas menores */
     }
 }
 
@@ -351,7 +370,7 @@ body {
     padding: 10px 0 10px 10px;
 }
 
-.help-header {
+.help-header .voltar-dashboard {
     margin: 0;
     font-size: 1.1em;
 }
@@ -379,7 +398,7 @@ body {
 /* Ajusta a posição do botão dentro da aba de ajuda */
 .help-footer {
     position: absolute;
-    bottom: 130px; /* Mantém um pequeno espaçamento da borda */
+    bottom: 130px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -395,7 +414,7 @@ body {
     color: white;
     font-weight: bold;
     text-align: center;
-    z-index: 10; /* Garante que fique acima de outros elementos */
+    z-index: 10;
 }
 
 /* Ajuste do ícone dentro do botão */
@@ -425,20 +444,198 @@ body {
 
 /* Estilo para a área de conteúdo rolável */
 .scrollable-content {
-    height: calc(100vh - 120px); /* Ajuste essa altura conforme a necessidade */
-    /* 100vh menos a altura da barra de pesquisa e talvez um padding extra */
+    /* Ocupa o espaço restante dentro do container */
+    flex-grow: 1; /* NOVO: Faz o scrollable-content preencher o espaço disponível */
     overflow-y: auto; /* Adiciona a barra de rolagem APENAS a este elemento */
-    padding-top: 80px; /* Garante que os perfis não fiquem escondidos atrás da barra de pesquisa fixa */
+    padding: 20px; /* NOVO: Adiciona o padding para o conteúdo rolável aqui */
     box-sizing: border-box; /* Inclui padding na altura total */
 }
 
 /* Ocultar a barra de rolagem para navegadores Webkit (Chrome, Safari) */
 .scrollable-content::-webkit-scrollbar {
-    width: 0; /* Largura da barra de rolagem */
-    background: transparent; /* Cor do fundo da barra de rolagem */
+    width: 0;
+    background: transparent;
 }
 
 /* Ocultar a barra de rolagem para Firefox */
 .scrollable-content {
-    scrollbar-width: none; /* "none" para ocultar, "auto" para mostrar, "thin" para fina */
+    scrollbar-width: none;
+}
+
+/* --- Ajustes para o Modo Escuro --- */
+
+/* Estilos para o Body no Modo Escuro (fundo mais suave) */
+body.modo-escuro {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Container principal no Modo Escuro */
+body.modo-escuro .container {
+    background: #1e1e1e;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+/* MODO ESCURO: Top Bar */
+body.modo-escuro .top-bar {
+    background: #1e1e1e; /* Mesma cor do container para a top-bar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Sombra mais escura */
+}
+
+
+body.modo-escuro .menu .bar {
+    background-color: white; /* Barras do menu brancas no modo escuro */
+}
+
+/* Estilizando cada perfil no Modo Escuro (os cards dos profissionais) */
+body.modo-escuro .profile {
+    background: #282828;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.modo-escuro .sidebar {
+    background: #6d431a;
+    border-right: 1px solid #3D342B;
+}
+
+body.modo-escuro .sidebar a {
+    color: #f3f3f3;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+body.modo-escuro .sidebar a:hover {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #FFC107;
+}
+
+body.modo-escuro .sidebar a.active {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #FFC107;
+    border-left: 3px solid #FFC107;
+    padding-left: 17px;
+}
+
+/* Caixa de pesquisa no Modo Escuro */
+body.modo-escuro .search-box input {
+    background: #282828;
+    color: #e0e0e0;
+    border: 2px solid #444;
+}
+
+/* Overlay escuro ao abrir menu */
+body.modo-escuro .overlay {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+body.modo-escuro .saiba-mais{
+    color: #1e5ff6;
+}
+
+body.modo-escuro .saiba-mais:hover {
+    color: #1649bf;
+}
+
+/* Overlay de "Minha Conta" e "Contatos" no Modo Escuro */
+body.modo-escuro #overlayConta .conteudo-como-usar,
+body.modo-escuro #overlayContatos .conteudo-como-usar {
+    background: #1e1e1e;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    color: #e0e0e0;
+}
+
+body.modo-escuro #overlayConta .fechar,
+body.modo-escuro #overlayContatos .fechar {
+    color: #f6941e;
+}
+
+body.modo-escuro #overlayConta .fechar:hover,
+body.modo-escuro #overlayContatos .fechar:hover {
+    color: #ffb74d;
+}
+
+body.modo-escuro #dadosConta {
+    color: #e0e0e0;
+}
+
+body.modo-escuro #dadosConta strong {
+    color: #ffb74d;
+}
+
+body.modo-escuro #overlayContatos .social-link {
+    background: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+body.modo-escuro .social-link:hover {
+    background: #f6941e33;
+    box-shadow: 0 4px 16px rgba(246,148,30,0.25);
+}
+
+/* Aba de ajuda (.help-panel) */
+body.modo-escuro .help-panel {
+    background: #23272b;
+    box-shadow: -2px 0px 10px rgba(0,0,0,0.6);
+}
+
+body.modo-escuro .help-header h2 {
+    color: #ffb74d;
+}
+
+body.modo-escuro .problems p {
+    color: #f3f3f3;
+}
+
+body.modo-escuro .help-footer {
+    background: #ffb74d;
+    color: #18191a;
+}
+
+body.modo-escuro #overlayContatos .conteudo-como-usar {
+    background: #23272b;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+body.modo-escuro #overlayContatos h2 {
+    color: #ffb74d;
+}
+
+body.modo-escuro #overlayContatos p {
+    color: #f3f3f3;
+}
+
+body.modo-escuro #overlayContatos h3 {
+    color: #ffb74d;
+}
+
+/* Ícones SVG nas redes sociais */
+body.modo-escuro .social-link {
+    background: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+body.modo-escuro .social-link:hover {
+    background: rgba(255, 183, 77, 0.2);
+    box-shadow: 0 4px 16px rgba(255, 183, 77, 0.3);
+}
+
+/* Ajustes para os SVGs (Facebook e Instagram) */
+body.modo-escuro .social-link svg rect {
+    stroke: #ffb74d;
+    fill: #23272b;
+}
+
+body.modo-escuro .social-link svg circle {
+    stroke: #ffb74d;
+}
+
+body.modo-escuro .social-link svg path {
+    fill: #ffb74d;
+}
+
+/* Exceção para o WhatsApp (mantém cores originais para reconhecimento) */
+body.modo-escuro .social-link a[title="WhatsApp"] svg circle {
+    fill: #25D366;
+}
+body.modo-escuro .social-link a[title="WhatsApp"] svg path {
+    fill: #fff;
 }

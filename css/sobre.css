@@ -47,3 +47,35 @@
 .voltar-dashboard:hover svg path {
     stroke: #ff9800;
 }
+
+/* Estilos para o modo escuro para a seção "Sobre Nós" */
+body.modo-escuro .sobre-container {
+    background: #23272b; /* Fundo mais escuro para o container */
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4); /* Sombra mais escura */
+}
+
+body.modo-escuro .sobre-container h1 {
+    color: #ffb74d; /* Cor do título na cor do tema (laranja mais claro) */
+}
+
+body.modo-escuro .sobre-container p {
+    color: #f3f3f3; /* Cor do texto do parágrafo branca suave */
+}
+
+/* O botão voltar-dashboard já possui regras para modo escuro no seu CSS,
+   então não precisa de alteração aqui, mas o incluí para contexto. */
+body.modo-escuro .voltar-dashboard {
+    color: #ffb74d; /* Cor do link voltar na cor do tema */
+}
+
+body.modo-escuro .voltar-dashboard:hover {
+    color: #f6941e; /* Hover na cor mais forte do tema */
+}
+
+body.modo-escuro .voltar-dashboard svg path {
+    stroke: currentColor;
+}
+
+body.modo-escuro .voltar-dashboard:hover svg path {
+    stroke: #f6941e;
+}

@@ -254,7 +254,6 @@ body.modo-escuro .btn-mudar-foto:hover {
     font-weight: bold;
     font-size: 1.1em;
     color: #f6941e;
-    text-decoration: underline;
     transition: color 0.2s;
 }
 

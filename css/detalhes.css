@@ -5,12 +5,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; /* Fundo padrão para o modo claro */
 }
 
 .container {
     text-align: center;
-    background: white;
+    background: white; /* Fundo branco para o modo claro */
     padding: 20px;
     width: 90%;
     max-width: 600px;
@@ -32,12 +32,13 @@ body {
 
 h2 {
     margin: 10px 0;
+    color: #333; /* Cor padrão para o modo claro */
 }
 
 p {
     text-align: center;
     font-size: 14px;
-    color: #333;
+    color: #333; /* Cor padrão para o modo claro */
     margin-bottom: 20px;
 }
 
@@ -45,6 +46,7 @@ h3 {
     text-align: left;
     width: 100%;
     margin-bottom: 10px;
+    color: #333; /* Cor padrão para o modo claro */
 }
 
 /* Lista de habilidades */
@@ -52,7 +54,7 @@ h3 {
     width: 100%;
     padding-left: 0;
     list-style-type: disc;
-    list-style-position: inside; /* Mantém os marcadores mais próximos do texto */
+    list-style-position: inside;
     margin-bottom: 20px;
 }
 
@@ -60,7 +62,7 @@ h3 {
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: #333;
+    color: #333; /* Cor padrão para o modo claro */
     margin-bottom: 8px;
 }
 
@@ -70,7 +72,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative; /* Evita sobreposição */
+    position: relative;
     margin-top: 20px;
 }
 
@@ -84,6 +86,11 @@ button {
     font-size: 16px;
     cursor: pointer;
     margin-bottom: 10px;
+    transition: background-color 0.3s ease; /* Adicionado para transição suave no hover */
+}
+
+button:hover {
+    background-color: #e0851c; /* Tom mais escuro no hover */
 }
 
 .botao-pequeno {
@@ -95,4 +102,48 @@ button {
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Adicionado para transição suave no hover */
+}
+
+.botao-pequeno:hover {
+    background-color: #5a5a5a; /* Tom mais escuro no hover */
+}
+
+/* --- Ajustes para o Modo Escuro --- */
+
+body.modo-escuro {
+    background-color: #121212; /* Fundo geral do body mais escuro e sutil */
+    color: #e0e0e0; /* Cor do texto padrão para branco muito suave (pode ser sobrescrito) */
+}
+
+body.modo-escuro .container {
+    background: #1e1e1e; /* **NOVO:** Fundo do container principal no modo escuro */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Sombra mais escura */
+}
+
+body.modo-escuro h2,
+body.modo-escuro p,
+body.modo-escuro h3,
+body.modo-escuro #listaHabilidades li {
+    color: #e0e0e0; /* Cor do texto geral branco suave no modo escuro */
+}
+
+body.modo-escuro button {
+    background: linear-gradient(90deg, #f6941e 60%, #FFC107 100%); /* Laranja mais claro para botões no modo escuro */
+    color: #18191a; /* Texto mais escuro para contrastar */
+    font-weight: bold;
+}
+
+body.modo-escuro button:hover {
+    background: linear-gradient(90deg, #FFC107 60%, #f6941e 100%); /* Gradiente no hover */
+    color: #000;
+}
+
+body.modo-escuro .botao-pequeno {
+    background-color: #555; /* Cinza mais escuro para o botão "Voltar" */
+    color: #f5f5f5; /* Texto branco suave */
+}
+
+body.modo-escuro .botao-pequeno:hover {
+    background-color: #6a6a6a; /* Cinza ligeiramente mais claro no hover */
 }

@@ -5,28 +5,42 @@ body {
     padding: 0;
 }
 
-.voltar-dashboard {
-    display: inline-flex;
+body .top-bar{
+    display: flex;
     align-items: center;
-    margin: 24px 0 0 24px;
-    font-size: 1.2em;
-    color: #f6941e;
-    text-decoration: none;
+    justify-content: center; /* Centraliza o título */
+    position: relative; /* Para posicionamento absoluto do 'voltar' */
+    margin-bottom: 30px; /* Mais espaço abaixo da barra superior */
+    padding: 10px 20px;
+    border-radius: 10px; /* Bordas arredondadas para a top-bar */
+}
+
+.top-bar h2{
+    margin: 0;
+    color: #f6941e; /* Cor laranja para o título no MODO CLARO */
+    font-size: 1.8em;
+}
+
+.voltar-dashboard-chat {
+    position: absolute;
+    left: 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    color: #f6941e; /* Cor laranja para o texto "Voltar" no MODO CLARO */
+    text-decoration: underline;
     font-weight: bold;
     transition: color 0.2s;
-    border: none;
-    background: none;
-    cursor: pointer;
-    gap: 4px;
+    display: flex; /* Para alinhar o SVG e o texto */
+    align-items: center; /* Centralizar verticalmente */
 }
-.voltar-dashboard:hover {
+.voltar-dashboard-chat:hover {
     color: #ff9800;
 }
-.voltar-dashboard svg path {
+.voltar-dashboard-chat svg path {
     stroke: currentColor;
     transition: stroke 0.2s;
 }
-.voltar-dashboard:hover svg path {
+.voltar-dashboard-chat:hover svg path {
     stroke: #ff9800;
 }
 
@@ -52,6 +66,11 @@ h1{
     padding: 24px 16px;
     text-align: center;
     transition: box-shadow 0.2s;
+}
+
+.profissional-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(165, 159, 159, 0.8); /* Sombra mais intensa no hover */
 }
 
 .profissional-card img {
@@ -95,5 +114,78 @@ h1{
 @media (max-width: 600px) {
     .profissionais-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+body.modo-escuro {
+    background-color: #18191a; /* Pode ser ligeiramente diferente para seguir configuracoes.css, mas o fundo principal já é escuro */
+    color: #f3f3f3; /* Cor do texto padrão para o MODO ESCURO */
+}
+
+body.modo-escuro .top-bar {
+    background-color: #23272b; /* Pode ser ligeiramente diferente para variação no modo escuro */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6); /* Sombra um pouco mais escura no MODO ESCURO */
+    border: 1px solid #333; /* Borda mais escura no MODO ESCURO */
+}
+
+body.modo-escuro .top-bar h2 {
+    color: #FFC107; /* Sua cor "dourado" para o título no MODO ESCURO */
+}
+
+body.modo-escuro .voltar {
+    color: #FFC107; /* Sua cor "dourado" para o texto "Voltar" no MODO ESCURO */
+}
+
+/* Cor da seta SVG no MODO ESCURO */
+body.modo-escuro .voltar svg path {
+    stroke: #FFC107; /* Sua cor "dourado" para a seta no MODO ESCURO */
+}
+
+body.modo-escuro .voltar:hover {
+    color: #f6941e; /* Laranja original no hover no MODO ESCURO */
+}
+
+body.modo-escuro .voltar:hover svg path {
+    stroke: #f6941e; /* Laranja original no hover para a seta no MODO ESCURO */
+}
+
+body.modo-escuro .profissional-card {
+    background-color: #2b2b2b; /* Fundo dos cards no MODO ESCURO (mantido do modo claro) */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.7); /* Sombra ainda mais escura no MODO ESCURO */
+    border: 1px solid #444; /* Borda do card no MODO ESCURO */
+}
+
+body.modo-escuro .profissional-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8); /* Sombra mais intensa no hover */
+}
+
+body.modo-escuro .profissional-card img {
+    border: 3px solid #FFC107; /* Borda "dourada" para as imagens no MODO ESCURO */
+}
+
+body.modo-escuro .profissional-card h3 {
+    color: #FFC107; /* "Dourado" para os nomes dos profissionais no MODO ESCURO */
+}
+
+body.modo-escuro .profissional-card p {
+    color: #bdbdbd; /* Cinza mais claro para o texto da especialidade no MODO ESCURO (igual ao modo claro) */
+}
+
+body.modo-escuro .btn-detalhes {
+    background: linear-gradient(90deg, #f6941e 60%, #FFC107 100%); /* Gradiente laranja/dourado para o botão */
+    color: #18191a; /* Texto escuro para o botão no MODO ESCURO */
+}
+
+body.modo-escuro .btn-detalhes:hover {
+    background: linear-gradient(90deg, #FFC107 60%, #f6941e 100%); /* Gradiente no hover */
+    color: #000; /* Texto ainda mais escuro no hover */
+}
+
+/* Responsividade para os cards */
+@media (max-width: 768px) {
+    .profissional-card {
+        width: 100%;
+        max-width: 350px;
     }
 }

@@ -67,7 +67,8 @@
         function exibirMensagem(msg) {
             const div = document.createElement("div");
             div.style.textAlign = msg.enviado ? "right" : "left";
-            div.innerHTML = `<p style="background: ${msg.enviado ? '#dcf8c6' : '#ffffff'}; display: inline-block; padding: 5px 10px; border-radius: 10px;">${msg.texto}</p>`;
+            div.classList.add(msg.enviado ? "mensagem-enviada-wrapper" : "mensagem-recebida-wrapper");
+            div.innerHTML = `<p class="${msg.enviado ? 'mensagem-enviada-bolha' : 'mensagem-recebida-bolha'}">${msg.texto}</p>`;
             chatBox.appendChild(div);
         }
 

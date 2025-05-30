@@ -489,8 +489,8 @@ body.modo-escuro .menu .bar {
 
 /* Ajustes para a Sidebar no Modo Escuro */
 body.modo-escuro .sidebar {
-    background: #3A2B1E; /* Laranja muito escuro, quase marrom, para o fundo */
-    border-right: 1px solid #4D3D2C; /* Borda sutil para separar do conteúdo */
+    background: #6d431a; 
+    border-right: 1px solid #3D342B; 
 }
 
 body.modo-escuro .sidebar a {
@@ -581,13 +581,24 @@ body.modo-escuro #overlayConta .conteudo-como-usar {
     box-shadow: 0 8px 32px rgba(0,0,0,0.4); /* Sombra mais escura para o modal de conta */
 }
 
+/* Dentro da seção de Complementos de Estilo para Modo Escuro no Dashboard */
+
+body.modo-escuro #dadosConta {
+    color: #f3f3f3; /* Cor branca suave para o texto geral em #dadosConta no modo escuro */
+}
+
 body.modo-escuro #dadosConta strong {
-    color: #ffb74d; /* Destaque dos dados da conta na cor do tema */
+    color: #ffb74d; /* Cor laranja/dourada para o texto em negrito no modo escuro (mantida do seu CSS) */
 }
 
 body.modo-escuro #dadosConta img {
     background: #23272b; /* Fundo da imagem de perfil no modal de conta */
     border: 3px solid #ffb74d; /* Borda da imagem de perfil no modal de conta */
+}
+
+body.modo-escuro #overlayConta .conteudo-como-usar {
+    background: #23272b; /* Fundo do modal de contatos escuro */
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4); /* Sombra mais escura */
 }
 
 /* Ajustes específicos para o overlay de Contatos */
