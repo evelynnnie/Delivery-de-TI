@@ -14,12 +14,11 @@
     <div class="container">
         <img id="fotoProfissional" src="" alt="Foto do profissional" class="foto-redonda" />
         <h2 id="nomeProfissional">Nome do Profissional</h2>
-        <p id="descricao">Descrição aqui...</p>
+                <p id="descricao">Descrição aqui...</p>
 
-        <div id="habilidades">
+                <div id="habilidades">
             <h3>Habilidades Técnicas:</h3>
             <ul id="listaHabilidades">
-                <!-- As habilidades serão preenchidas dinamicamente pelo JavaScript -->
             </ul>
         </div>
 
@@ -29,6 +28,7 @@
         </button>
     </div>
 
+       
     <script>
         // Banco de dados dos profissionais
         const profissionais = {
@@ -49,7 +49,7 @@
             },
             "Ana Costa": {
                 descricao: "Desenvolvedora com foco em criar soluções eficientes e escaláveis",
-                foto: "src/imagens/mulher1.jpg",
+                foto: "src/imagens/mulher1.png",
                 cargo: "Técnica em Desenvolvimento de Sistemas",
                 experiencia: "4 anos",
                 habilidades: [
@@ -65,7 +65,7 @@
             },
             "Carlos Lima": {
                 descricao: "Profissional especializado em infraestrutura de redes",
-                foto: "src/imagens/homem2.jpg",
+                foto: "src/imagens/homem2.png",
                 cargo: "Técnico em Infraestrutura de Redes",
                 experiencia: "6 anos",
                 habilidades: [
@@ -80,7 +80,7 @@
             },
             "Mariana Souza": {
                 descricao: "Profissional dedicada à proteção de dados e sistemas",
-                foto: "src/imagens/mulher2.jpeg",
+                foto: "src/imagens/mulher2.png",
                 cargo: "Técnica em Segurança da Informação",
                 experiencia: "4 anos",
                 habilidades: [
@@ -91,6 +91,186 @@
                     "Criptografia e gestão de certificados digitais",
                     "Conscientização e treinamento de equipes em boas práticas de segurança",
                     "Resposta a incidentes e recuperação de desastres"
+                ]
+            },
+            "Pedro Almeida": {
+                descricao: "Especialista em bancos de dados e análise de dados.",
+                foto: "src/imagens/homem3.png",
+                cargo: "Técnico em Banco de Dados",
+                experiencia: "7 anos",
+                habilidades: [
+                    "Modelagem de dados (relacional e NoSQL)",
+                    "Administração de bancos de dados (MySQL, PostgreSQL, SQL Server, Oracle)",
+                    "Otimização de queries e performance",
+                    "Extração, Transformação e Carga (ETL) de dados",
+                    "Criação de Dashboards e relatórios (Power BI, Tableau)",
+                    "Linguagens: SQL, Python (Pandas, NumPy)",
+                    "Segurança e backup de bancos de dados"
+                ]
+            },
+            "Isabela Martins": {
+                descricao: "Profissional de TI com foco em UX/UI e design de interfaces intuitivas.",
+                foto: "src/imagens/mulher3.png",
+                cargo: "Técnica em Design de Interfaces (UX/UI)",
+                experiencia: "3 anos",
+                habilidades: [
+                    "Pesquisa de usuário e análise de experiência",
+                    "Criação de wireframes e protótipos (Figma, Adobe XD)",
+                    "Design de interface do usuário (UI Design)",
+                    "Teste de usabilidade e coleta de feedback",
+                    "Design System e guias de estilo",
+                    "Ferramentas: Figma, Adobe XD, Sketch",
+                    "Conhecimento em princípios de Acessibilidade Digital"
+                ]
+            },
+            "Lucas Mendes": {
+                descricao: "Especialista em automação de processos e DevOps.",
+                foto: "src/imagens/homem4.png",
+                cargo: "Técnico em DevOps e Automação",
+                experiencia: "5 anos",
+                habilidades: [
+                    "Automação de infraestrutura (Terraform, Ansible)",
+                    "Gerenciamento de contêineres (Docker, Kubernetes)",
+                    "CI/CD (Jenkins, GitLab CI, GitHub Actions)",
+                    "Monitoramento de sistemas (Prometheus, Grafana)",
+                    "Scripting (Bash, Python)",
+                    "Cloud Computing (AWS, Azure, Google Cloud)",
+                    "Metodologias DevOps e SRE"
+                ]
+            },
+            "Fernanda Castro": {
+                descricao: "Analista de sistemas com expertise em sistemas de gestão (ERP/CRM).",
+                foto: "src/imagens/mulher4.png",
+                cargo: "Técnica em Análise de Sistemas",
+                experiencia: "6 anos",
+                habilidades: [
+                    "Levantamento de requisitos e especificação de sistemas",
+                    "Análise de processos de negócio",
+                    "Modelagem de sistemas (UML, BPMN)",
+                    "Configuração e customização de sistemas ERP/CRM",
+                    "Testes de integração e aceitação",
+                    "Suporte a usuários e treinamento",
+                    "Gerenciamento de projetos (SCRUM, PMBOK)"
+                ]
+            },
+            "Gabriel Nogueira": {
+                descricao: "Técnico de suporte focado em experiência do usuário e resolução rápida de problemas.",
+                foto: "src/imagens/homem5.png",
+                cargo: "Técnico de Suporte Nível 2",
+                experiencia: "4 anos",
+                habilidades: [
+                    "Diagnóstico e solução de problemas de hardware e software",
+                    "Suporte a sistemas operacionais (Windows, Linux, macOS)",
+                    "Configuração de redes domésticas e empresariais",
+                    "Atendimento via telefone, e-mail e chat",
+                    "Ferramentas de ticket e ITSM (Jira, Zendesk)",
+                    "Conhecimento em Active Directory e GPOs",
+                    "Treinamento de usuários em ferramentas básicas de TI"
+                ]
+            },
+            "Laura Mendes": {
+                descricao: "Especialista em computação em nuvem e arquitetura de soluções.",
+                foto: "src/imagens/mulher5.png",
+                cargo: "Técnica em Cloud Computing",
+                experiencia: "5 anos",
+                habilidades: [
+                    "Arquitetura e implementação de soluções em nuvem (AWS, Azure, GCP)",
+                    "Gerenciamento de infraestrutura como código (Terraform, CloudFormation)",
+                    "Serviços de contêineres em nuvem (ECS, AKS, GKE)",
+                    "Estratégias de migração para a nuvem",
+                    "Monitoramento e otimização de custos em nuvem",
+                    "Segurança em ambientes cloud",
+                    "Conhecimento em serverless (Lambda, Azure Functions)"
+                ]
+            },
+            "Rafael Santos": {
+                descricao: "Cientista de dados com paixão por extrair insights de grandes volumes de informações.",
+                foto: "src/imagens/homem6.png",
+                cargo: "Técnico em Ciência de Dados",
+                experiencia: "3 anos",
+                habilidades: [
+                    "Análise exploratória de dados (EDA)",
+                    "Modelagem preditiva e aprendizado de máquina (Machine Learning)",
+                    "Linguagens: Python (Pandas, Scikit-learn, TensorFlow), R",
+                    "Visualização de dados (Matplotlib, Seaborn, Plotly)",
+                    "SQL e NoSQL para manipulação de dados",
+                    "Estatística e probabilidade",
+                    "Big Data (Spark, Hadoop)"
+                ]
+            },
+            "Sofia Oliveira": {
+                descricao: "Técnica em QA e automação de testes para garantir a qualidade do software.",
+                foto: "src/imagens/mulher6.png",
+                cargo: "Técnica em Qualidade de Software (QA)",
+                experiencia: "4 anos",
+                habilidades: [
+                    "Planejamento e execução de testes (funcionais, de regressão, de integração)",
+                    "Automação de testes (Selenium, Cypress, Playwright)",
+                    "Testes de API (Postman, REST Assured)",
+                    "Metodologias de teste (TDD, BDD)",
+                    "Criação e manutenção de planos de teste e relatórios de bugs",
+                    "Jira, Azure DevOps para gerenciamento de testes",
+                    "Conhecimento em SQL para validação de dados"
+                ]
+            },
+            "Gustavo Pereira": {
+                descricao: "Especialista em sistemas operacionais e virtualização de servidores.",
+                foto: "src/imagens/homem7.png",
+                cargo: "Técnico em Sistemas Operacionais",
+                experiencia: "8 anos",
+                habilidades: [
+                    "Administração de sistemas Linux (Ubuntu, CentOS, Red Hat)",
+                    "Administração de sistemas Windows Server (Active Directory, DNS, DHCP)",
+                    "Configuração e gerenciamento de ambientes virtualizados (VMware vSphere, Hyper-V)",
+                    "Monitoramento de performance de servidores",
+                    "Scripting (Bash, PowerShell)",
+                    "Segurança de servidores e hardening",
+                    "Backup e recuperação de dados de servidores"
+                ]
+            },
+            "Camila Rocha": {
+                descricao: "Gestora de projetos ágeis focada em entrega de valor e liderança de equipes.",
+                foto: "src/imagens/mulher7.png",
+                cargo: "Técnica em Gestão de Projetos (Agile)",
+                experiencia: "6 anos",
+                habilidades: [
+                    "Metodologias ágeis (Scrum, Kanban, Lean)",
+                    "Liderança e facilitação de equipes de desenvolvimento",
+                    "Planejamento e acompanhamento de sprints e releases",
+                    "Gerenciamento de stakeholders e comunicação",
+                    "Ferramentas de gerenciamento de projetos (Jira, Trello, Asana)",
+                    "Resolução de impedimentos e riscos",
+                    "Métricas ágeis e melhoria contínua"
+                ]
+            },
+            "Thiago Oliveira": {
+                descricao: "Arquiteto de software com vasta experiência em design de sistemas complexos.",
+                foto: "src/imagens/homem8.png",
+                cargo: "Arquiteto de Software",
+                experiencia: "9 anos",
+                habilidades: [
+                    "Definição de arquitetura de software (microsserviços, monolitos)",
+                    "Design patterns e princípios SOLID",
+                    "Avaliação e seleção de tecnologias (linguagens, frameworks)",
+                    "Otimização de performance e escalabilidade",
+                    "Revisão de código e mentoria de equipes",
+                    "Integração de sistemas e APIs",
+                    "Conhecimento em práticas de segurança no desenvolvimento (DevSecOps)"
+                ]
+            },
+            "Beatriz Ferreira": {
+                descricao: "Técnica em Redes e Cybersegurança, focada na proteção de ativos digitais.",
+                foto: "src/imagens/mulher8.png",
+                cargo: "Analista de Segurança de Redes",
+                experiencia: "5 anos",
+                habilidades: [
+                    "Configuração e hardening de firewalls e IDS/IPS",
+                    "Análise de logs de segurança e eventos (SIEM)",
+                    "Resposta a incidentes de segurança cibernética",
+                    "Auditorias de segurança de redes",
+                    "Conhecimento em protocolos de rede (VPN, SSL/TLS)",
+                    "Implementação de políticas de acesso e segurança",
+                    "Ferramentas de varredura de vulnerabilidades (Nmap, OpenVAS)"
                 ]
             }
         };
